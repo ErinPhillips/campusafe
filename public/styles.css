@@ -656,9 +656,9 @@ form input[type=button]:hover
    }
    
    /* center and widen content on screen */
-    #map1, #map2, #report
+    #map2, #report
    {
-       width: 100%;
+       width: 90%;
        height: 500px;
    }
    
@@ -670,28 +670,6 @@ form input[type=button]:hover
    .popup .content { overflow-y: scroll; }
    
    
-    #drag-alert 
-   {
-      display:block;
-      position: absolute;
-      overflow-y: hidden;
-      width: 90%;
-      margin-left: auto;
-      margin-right: auto;
-      left: 0;
-      right: 0;
-      text-align: center;
-      background-color: white;
-      border: 1px solid #d3d3d3;
-      border-radius: 10px;
-      
-   }
-   #drag-alert-header {
-     padding: 10px;
-     cursor: move;
-     background-color: #f1f1f1;
-     color: dimgray;
-}
    #alerts
    {
       float: left;
