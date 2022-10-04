@@ -815,11 +815,11 @@ form input[type=button]:hover
       
    }
    
-   header h1
+   header h1 a
    {
       padding-top: 10px;
       font-size: 40px;
-      width: 100%;
+      width: 90%;
       margin:auto;
       float: left;
    }
