@@ -110,8 +110,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 // registration failed
-                setFormMessage(createAccountForm, "error", "Invalid username/password combination");
             });
+   
+   setFormMessage(createAccountForm, "error", "Invalid username/password combination");
             
         });
     });
