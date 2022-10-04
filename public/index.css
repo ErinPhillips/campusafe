@@ -1,0 +1,132 @@
+#map1
+{
+   border-radius: 10px;
+   width:100%;
+   height: 100%;
+   float: left;
+}
+
+
+#left-side{
+   float: left;
+   width: 50%;
+   height: 500px;
+}
+
+#right-side{
+   float: right;
+   width: 50%;
+   height: 500px;
+  
+
+}
+/* Live feed of alerts */
+#alerts 
+{
+   width: 100%;
+   height: 100%;
+   overflow-x: hidden;
+   overflow-y: scroll;
+}
+
+
+#alerts h2
+{
+   text-align: center;
+   color: dimgray;
+}
+
+#alerts dl
+{
+   list-style-type: none;
+   margin-left: 5%;
+   
+}
+#alerts dd 
+{
+   margin: 0;
+   font-size: 13px;
+   padding-bottom: 5px;
+   padding-top: 5px
+}
+#alerts #nonviolent
+{
+   background-color: lightsalmon;
+   padding: 20px;
+   margin-bottom: 20px;
+}
+
+#alerts #weather
+{
+   background-color: #FAE68E;
+   padding: 20px;
+   margin-bottom: 20px;
+}
+   
+#alerts #violent
+{
+   background-color: lightcoral;
+   padding: 20px;
+   margin-bottom: 20px;
+}
+
+
+/* style for phone screens */
+@media only screen and (max-width: 600px) {
+   
+   /* center and widen content on screen */
+    #map1
+   {
+       width: 100%;
+       height: 500px;
+   }
+   
+    #drag-alert 
+   {
+      display:block;
+      position: absolute;
+      overflow-y: hidden;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      text-align: center;
+      background-color: white;
+      border: 1px solid #d3d3d3;
+      border-radius: 10px;
+      
+   }
+   #drag-alert-header {
+     padding: 10px;
+     cursor: move;
+     background-color: #f1f1f1;
+     color: dimgray;
+}
+   #alerts
+   {
+      float: left;
+   }
+   #left-side
+   {
+      float: none;
+      width: 100%;
+      margin: auto;
+      height: 400px;
+   }
+   #right-side
+   {
+      display:none;
+   }
+   
+   #alerts dl
+  {
+   margin-left: 0%;
+   
+   }
+
+}
+   
+   
+    
+

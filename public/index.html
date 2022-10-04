@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> CampuSafe </title>
+   <meta name="viewport" content="width=device-width,initial-scale=1"/>
+   <script type="text/javascript" scr="style.js"></script>
+   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+   
+   
+    
+    <link rel="icon" href="images/CampuSafe-logo.png" type="image/x-icon">
+    <meta charset="utf-8">
+   
+ <!-- Import stylesheets -->
+   <link rel="stylesheet" href="styles.css"> 
+   
+   <link rel="stylesheet" href="index.css">
+   
+<!-- import JS files -->
+   <script type="module" src="index.js"></script>
+   
+    <script type="text/javascript" src="map.js"></script>
+   
+   <script type="text/javascript" src="events.js"></script>
+   
+ <!-- Import icons -->
+   <!-- Profile icon -->  
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+   
+   <!-- Settings icon -->
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+   
+   <!-- Logout icon -->
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+   
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+ <!-- Import fonts -->   
+   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   
+  <!-- Oxygen font -->
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+
+   
+</head>
+<body onload="disableScroll()">
+   
+   
+<div id="wrapper">
+   
+   <div id = "topHead">
+    <div id = "profile-dropdown">
+        <a id= "profile-icon" href="#profile-popup" style="color: dimgray"><span class="material-symbols-outlined" >person_filled</span></a>
+        <div id = "hello-user">Hello User!</div>
+        <div id="profile-dropdown-content">
+         <a href="#profile-popup" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">person_filled</span>My Profile</a>
+         <a href="settings.html" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">settings</span>Settings</a>
+         <a href="login.html" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">logout</span>Logout</a>
+        </div>
+    
+      </div>
+       <!-- Add Alert Button, users click to open up a popup where they can report an incident -->
+      <a id="add-alert" href="#report-popup">Report Incident</a>
+   </div>
+   <header>
+      
+    <h1><a href = "index.html"><img src="images/CampuSafe-logo.png" height="50" alt = "CampuSafe logo">&nbsp;Campu<class id="redText" style="color:#ee2e24">Safe</class></a></h1>
+   
+      <!-- Menu Nav for mobile browser (slides from right side of screen) -->
+      
+      <span class="menuButton" onclick="openNav()">&#9776;</span>
+      
+      <!-- Menu Nav for web browser (appears across top of screen) -->
+     
+      <nav id = "web-nav">
+        <ul>
+        <li><a href = "index.html"><img id="nav-logo" src="images/nav-logo.png">Alerts</a></li>
+        <li><img id="nav-logo" style="visibility: hidden" src="images/nav-logo.png"><a href = "myFriends.html">My Friends</a></li>
+        <li><img id="nav-logo" style="visibility: hidden" src="images/nav-logo.png"><a href = "resources.html">Resources</a></li>
+        <li><img id="nav-logo" style="visibility: hidden" src="images/nav-logo.png"><a href = "aboutUs.html">About Us</a></li>
+         </ul>
+    </nav>
+   </header>
+   
+   
+   <!-- Main Map UI, holds all of the current markers (users cannot add markers directly by clicking on this map)-->
+   
+   <div id="left-side">
+       <div id="map1" class="map-item"> </div>
+   </div>
+   
+   <!-- Profile popup box (users can edit profile info and see account info)-->
+   
+   <div id = "profile-popup" class="overlay">
+      <div class="popup">
+      <a class="close" href="#">&times;</a>
+          <div class="content">
+             Profile
+         </div>
+      </div>
+   </div>
+   
+   <div id="right-side">
+   
+      
+   <!-- Alert Feed, shows all reports and alerts that appear on map -->
+      
+   <div id="alerts">
+   <h2>Alerts</h2>
+   
+   <dl>
+      <div id = "nonviolent">
+         <dt>Theft Reported on St. Phillips Street</dt>
+         <dd id = "date-time">9/5/22 - 8:46 PM</dd>
+         <dd id = "info">A theft was reported on St. Phillips Street near the BellSouth building. Authorities have been notified and are currently investigating. The perpetrator is still at large at this time.</dd>
+      </div>
+      <div id = "weather">
+         <dt>Hurricane Watch</dt>
+         <dd id = "date-time">9/5/22 - 7:03 AM</dd>
+         <dd id = "info">The City of Charleston has posted a public advisory for a hurricane watch. Winds up to 74 mph or higher are possible within 48 hours. While there are no plans for evacuation at this time, conditions can change rapidly, so always be prepared.</dd>
+      </div>
+      <div id = "violent">
+         <dt>Shooting on Morris and King</dt>
+         <dd id = "date-time">9/4/22 - 10:57 PM</dd>
+         <dd id = "info">Charleston Police are actively looking for a suspect in connection to the shooting of multiple victims at Morris and King Streets. The suspect is still at large and authorities warn to stay away from the area.</dd>
+      </div>
+   </dl>
+      </div>
+      </div>
+   
+   <div id="drag-alert" hidden>
+      <div id="drag-alert-header"><hr size="3" color="#d3d3d3" width="40%" ></div>
+      
+   <!-- Alert Feed, shows all reports and alerts that appear on map -->
+   
+   <div id="alerts">
+   <h2>Alerts</h2>
+   <dl>
+      <div id = "nonviolent">
+         <dt>Theft Reported on St. Phillips Street</dt>
+         <dd id = "date-time">9/5/22 - 8:46 PM</dd>
+         <dd id = "info">A theft was reported on St. Phillips Street near the BellSouth building. Authorities have been notified and are currently investigating. The perpetrator is still at large at this time.</dd>
+      </div>
+      <div id = "weather">
+         <dt>Hurricane Watch</dt>
+         <dd id = "date-time">9/5/22 - 7:03 AM</dd>
+         <dd id = "info">The City of Charleston has posted a public advisory for a hurricane watch. Winds up to 74 mph or higher are possible within 48 hours. While there are no plans for evacuation at this time, conditions can change rapidly, so always be prepared.</dd>
+      </div>
+      <div id = "violent">
+         <dt>Shooting on Morris and King</dt>
+         <dd id = "date-time">9/4/22 - 10:57 PM</dd>
+         <dd id = "info">Charleston Police are actively looking for a suspect in connection to the shooting of multiple victims at Morris and King Streets. The suspect is still at large and authorities warn to stay away from the area.</dd>
+      </div>
+   </dl>
+   </div>
+   </div>
+    <div class = "sidenav" id="mySidenav">
+         <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
+         <a href = "index.html">Alerts</a>
+         <a href = "myFriends.html">My Friends</a>
+         <a href = "resources.html">Resources</a>
+         <a href = "aboutUs.html">About Us</a>
+         <a href="#profile-popup">My Profile</a>
+         <a href="settings.html">Settings</a>
+         <a href="login.html">Logout</a>
+      </div>
+   </div>
+   
+   
+   <!-- Report popup - holds a form where users can fill out information about incident and submit it to alert feed -->
+      
+   <div id = "report-popup" class="overlay">
+      <div class="popup">
+      <a class="close" href="#">&times;</a>
+          <div class="content">
+             <div id="map2" class="map-item"> </div>
+             <form id = "report">
+                <label for="location" >Location  *</label>
+                <div id="location">Click on map to add location</div>
+                <br>
+                <label for="date">Date  *</label>
+                <br>
+                <input type="date" required id="date" name="date">
+                <br>
+                <br>
+                <label for="time">Time  *</label>
+                <br>
+                <input type="time" required id="time" name="time">
+                <br>
+                <br>
+                <div id="latlng" style="display: none"></div>
+                <label for="incident">Incident  *</label>
+                <br>
+                <select id="incident" required name="incident">
+                   
+                <option value="none" selected disabled hidden>Select an Option</option>
+                <option value="theft">Theft</option>
+                <option value="shooting">Shooting</option>
+                <option value="harrassment">Harassment</option>
+                <option value="car-breakin">Car Break In</option>
+                <option value="stalking">Stalking</option>
+                <option value="sexual-assault">Sexual Assault</option>
+                <option value="other">Other</option>
+                </select>
+                <br>
+                <br>
+                <label for="crime">Was this a violent crime?  *</label><br>
+                <select id="crime" required name="crime">
+                <option value="none" selected disabled hidden>Select an Option</option>
+                <option value="non-violent">Non-Violent</option>
+                <option value="violent">Violent</option>
+                </select>
+                <br>
+                <br>
+                <label for="additional-info">Additional Information</label><br>
+                <textarea wrap="soft" style="resize:none; height:10%"></textarea>
+                <input type=submit name="submit" class="submit">
+                <br>
+                <br>
+                <div>* Required</div>
+                
+             
+             </form>
+      </div>
+      </div>
+      </div>
+   
+   <!-- footer - appears at bottom of page -->
+   <footer>
+       <small><i>Copyright &copy; 2022 CampuSafe</i><br>
+       <a href="mailto:gillikinme@g.cofc.edu?subject = Feedback&body = Message">Contact Us</a>
+       </small>
+   </footer>
+   
+<!-- Connect to Google Maps -->   
+<script async defer
+     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQy4vKcZsMzbEjzqRb44n0AsvnmgMFC30&callback=drawMap">
+</script>
+   
+
+</body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js"></script>
+<!-- TODO: add SDKs for firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js"></script>
+</html>

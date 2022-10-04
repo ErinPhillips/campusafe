@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> CampuSafe </title>
+    
+   <link rel="icon" href="images/CampuSafe-logo.png" type="image/x-icon">
+    <meta charset="utf-8">
+   
+ <!-- Import stylesheets -->
+   <link rel="stylesheet" href="styles.css">
+   
+   <link rel="stylesheet" href="resources.css">
+   
+   <!-- import JS files -->
+    <script type="text/javascript" src="map.js"></script>
+   
+   <script type="text/javascript" src="events.js"></script>
+   
+ <!-- Import icons -->
+   <!-- Profile icon -->  
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+   
+   <!-- Settings icon -->
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+   
+   <!-- Logout icon -->
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+ <!-- Import fonts -->   
+   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   
+  <!-- Oxygen font -->
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+
+   
+</head>
+<body>
+   
+   
+<div id="wrapper">
+   
+   <div id = "topHead">
+    <div id = "profile-dropdown">
+        <a id= "profile-icon" href="#profile-popup" style="color: dimgray"><span class="material-symbols-outlined" >person_filled</span></a>
+        <div id = "hello-user">Hello User!</div>
+        <div id="profile-dropdown-content">
+         <a href="#profile-popup" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">person_filled</span>My Profile</a>
+         <a href="settings.html" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">settings</span>Settings</a>
+         <a href="login.html" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">logout</span>Logout</a>
+        </div>
+    
+      </div>
+       <!-- Add Alert Button, users click to open up a popup where they can report an incident -->
+      <a id="add-alert" href="#report-popup">Report Incident</a>
+   </div>
+   <header>
+      
+    <h1><a href = "index.html"><img src="images/CampuSafe-logo.png" height="50" alt = "CampuSafe logo">&nbsp;Campu<class id="redText" style="color:#ee2e24">Safe</class></a></h1>
+   
+      <!-- Menu Nav for mobile browser (slides from right side of screen) -->
+      
+      <span class="menuButton" onclick="openNav()">&#9776;</span>
+      
+      <!-- Menu Nav for web browser (appears across top of screen) -->
+     
+      <nav id = "web-nav">
+        <ul>
+        <li><a href = "index.html"><img id="nav-logo" src="images/nav-logo.png">Alerts</a></li>
+        <li><img id="nav-logo" style="visibility: hidden" src="images/nav-logo.png"><a href = "myFriends.html">My Friends</a></li>
+        <li><img id="nav-logo" style="visibility: hidden" src="images/nav-logo.png"><a href = "resources.html">Resources</a></li>
+        <li><img id="nav-logo" style="visibility: hidden" src="images/nav-logo.png"><a href = "aboutUs.html">About Us</a></li>
+         </ul>
+    </nav>
+   </header>
+    
+     
+   <h2>Resources</h2>
+   
+   <div id="resource-container">
+   <p>For any emergencies, call <a href="tel:911" style="text-decoration:none; color:red">911</a> immediately.</p><br>
+   <div id = "campus-saftey">
+      
+      <h3>Campus Saftey</h3>
+      
+      <div id ="campus-security">
+         <a id="campus-security-default" href="tel:843-953-5609" >Campus Security - Non-Emergency</a>
+         <a id="campus-security-hover" href="tel:843-953-5609" >843-953-5609</a>
+      </div>
+      <div id = "fire-ems">
+         <a id="fire-ems-default" href="tel:843-953-5499">Fire and EMS</a>
+          <a id="fire-ems-hover" href="tel:843-953-5499">843-953-5499</a>
+      </div>
+      <div id="public-saftey">
+         <a id="public-saftey-default" href="tel:843-953-4980">Public Saftey - General Information</a>
+         <a id="public-saftey-hover" href="tel:843-953-4980">843-953-4980</a>
+      </div>
+      <div id="crime-action">
+         <a id="crime-action-default" href="tel:843-953-4998">Crime Action Line</a>
+         <a id="crime-action-hover" href="tel:843-953-4998">843-953-4998</a>
+      </div>
+      <div id="additional">
+      <a href="https://facilitiesmanagement.cofc.edu/building-liaison/emergency-numbers/index.php">Additional Informaion</a>
+      </div>
+   </div>
+
+      
+   <div id="hotlines">
+   <h3>Hotlines</h3>
+      <div id = hotline1>
+         <a id="hotline1-default" href="tel:1-800-SUICIDE" >Suicide Hotline</a>
+         <a id="hotline1-hover" href="tel:1-800-SUICIDE" >1-800-SUICIDE (784-2433)</a>
+      </div>
+      <div id = "hotline2">
+         <a id="hotline2-default" href="tel:1-800-799-SAFE">Domestic Violence</a>
+          <a id="hotline2-hover" href="tel:1-800-799-SAFE">1-800-799-SAFE</a>
+      </div>
+      <div id="hotline3">
+         <a id="hotline3-default" href="tel:1-800-656-HOPE">Sexual Assault</a>
+         <a id="hotline3-hover" href="tel:1-800-656-HOPE">1-800-656-HOPE (4673)</a>
+      </div>
+      <div id="hotline4">
+         <a id="hotline4-default" href="tel:1-800-398-GAYS">LGBTQA+</a>
+         <a id="hotline4-hover" href="tel:1-800-398-GAYS">1-800-398-GAYS</a>
+      </div>
+      <div id="additional">
+         <a href="https://www.pleaselive.org/hotlines/">Additional Hotlines</a>
+      </div>
+   </div>
+   <p>
+   
+   </p>
+   </div>
+   
+   <!-- mobile navigation content - slide sin from the right -->
+   <div class = "sidenav" id="mySidenav">
+         <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
+         <a href = "index.html">Alerts</a>
+         <a href = "myFriends.html">My Friends</a>
+         <a href = "resources.html">Resources</a>
+         <a href = "aboutUs.html">About Us</a>
+         <a href="#profile-popup">My Profile</a>
+         <a href="settings.html">Settings</a>
+         <a href="login.html">Logout</a>
+      </div>
+   
+</div>
+   <footer>
+       <small><i>Copyright &copy; 2022 CampuSafe</i><br>
+       <a href="mailto:gillikinme@g.cofc.edu?subject = Feedback&body = Message">Contact Us</a>
+       </small>
+   </footer>
+
+   
+   <script>
+   
+   
+   // toggles nav content when menu button is clicked on mobile browser
+function togglePhoneNav()
+{
+  document.getElementById("dropdown").classList.toggle("show");
+}
+   /*
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+*/
+   </script>
+</body>
+</html>

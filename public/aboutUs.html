@@ -1,0 +1,141 @@
+<?php
+if($_POST["Message"]) {
+mail("meghangillikin@gmail.com", "Here is the sample subject line",
+$_POST["Insert Your Message"]. "From: gillikinme@g.cofc.edu");
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> CampuSafe </title>
+    
+<link rel="icon" href="images/CampuSafe-logo.png" type="image/x-icon">
+    <meta charset="utf-8">
+   
+ <!-- Import stylesheet -->
+   <link rel="stylesheet" href="styles.css">
+   
+ <!-- Import icons -->
+   <!-- Profile icon -->  
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+   
+   <!-- Settings icon -->
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+   
+   <!-- Logout icon -->
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+ <!-- Import fonts -->   
+   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   
+  <!-- Oxygen font -->
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+
+   
+</head>
+<body>
+   
+   
+<div id="wrapper">
+   
+   <div id = "topHead">
+    <div id = "profile-dropdown">
+        <a id= "profile-icon" href="profile.html" style="color: dimgray"><span class="material-symbols-outlined" >person_filled</span></a>
+        <div id = "hello-user">Hello User!</div>
+        <div id="profile-dropdown-content">
+         <a href="profile.html" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">person_filled</span>My Profile</a>
+         <a href="settings.html" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">settings</span>Settings</a>
+         <a href="login.html" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">logout</span>Logout</a>
+        </div>
+    
+      </div>
+   </div>
+    <header>
+    <h1><a href = "index.html"><img src="images/CampuSafe-logo.png" height="50" alt = "CampuSafe logo">&nbsp;Campu<class id="redText" style="color:#ee2e24">Safe</class></a></h1>
+    
+    <div class = "nav-dropdown">
+      <button onclick="togglePhoneNav()" class="dropbtn"><span class="material-symbols-outlined">menu</span></button>
+      <div id="dropdown" class="dropdown-content">
+         <a href = "index.html">Alerts</a>
+         <a href = "myFriends.html">My Friends</a>
+         <a href = "resources.html">Resources</a>
+         <a href = "aboutUs.html">About Us</a>
+         <a href="profile.html">My Profile</a>
+         <a href="settings.html">Settings</a>
+         <a href="login.html">Logout</a>
+      </div>
+   </div>
+   </header>
+    
+     <nav id="web-nav">
+        <ul>
+        <li><img id="nav-logo" style="visibility: hidden"src="images/nav-logo.png"><a href = "index.html">Alerts</a></li>
+        <li><a href = "myFriends.html"><img id="nav-logo" style="visibility: hidden" src="images/nav-logo.png">My Friends</a></li>
+        <li><img id="nav-logo" style="visibility: hidden" src="images/nav-logo.png"><a href = "resources.html">Resources</a></li>
+        <li><img id="nav-logo"src="images/nav-logo.png"><a href = "aboutUs.html">About Us</a></li>
+         </ul>
+    </nav>
+   
+   <div id="aboutUsHeropic">
+   <img src="images/college_image.jpeg" width="100%" alt="Image of the College of Charleston">
+   
+   </div>
+   
+   <h2>About Us</h2>
+    <p>
+    Our team at the College of Charleston want to thank you for using CampuSafe!<br>
+    <br>
+    We are a small group of developers currently attending the College of Charleston. This project was developed using cutting-edge technology like BlockChain. We put in copius amounts of effort to get CampuSafe up and running for everyone to use, so we hope you enjoy it! If you have any suggestions, comments, or complaints, please don't hesitate to let us know through the contact information at the bottom of the page.<br>
+    <h3>Get to Know Us:</h3>
+    Our front-end developer (the one who makes this site look as amazing as it does!) is Meghan Gillikin.<br>
+    <!-- feel free to add info about yourself (major, grade, fun fact) -->
+    Meghan is a Senior, double majoring in Computing in the Arts and Studio Art. She works in the AI, Music, and Interaction Lab at the College of Charleston. 
+    <br>
+    Our back-end developers (who put in the work to get all the cool features up and running!) are Matthew Sparr and Trent Varnes. <br>
+    Both are seniors majoring in Computer Science B.S.<br>
+    <!-- feel free to add info about yourself (major, grade, fun fact) -->
+    <br>
+    Our database developers (who make sure everyones information is stored securely!) are Erin Phillips and Olivia Schreiner.<br>
+    <!-- feel free to add info about yourself (major, grade, fun fact) -->
+    Erin is a Senior, majoring in a B.S. in Computer Science, and is also our project manager!<br>
+    Olivia is a Junior, double majoring in Computer Science and Mathematics and is our documentation specialist! This is the first software development project they've made, but they hope to make many more!<br>
+    <br>
+    <h2>Contact Us</h2>
+   <!-- Sample HTML Form -->
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfplPMa0ynNMlLlKOk6I0RZdVBch4sYdQ_tMSzG273LyUXLsg/viewform?embedded=true" width="640" height="382" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <footer>
+       <small><i>Copyright &copy; 2022 CampuSafe</i><br>
+       <a href="mailto:gillikinme@g.cofc.edu?subject = Feedback&body = Message">Contact Us</a>
+       </small>
+   </footer>
+</div>
+   
+   <script>
+   
+   
+   // toggles nav content when menu button is clicked on mobile browser
+function togglePhoneNav()
+{
+  document.getElementById("dropdown").classList.toggle("show");
+}
+   /*
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+*/
+   </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> CampuSafe - Login</title>
+    <link rel="icon" href="images/CampuSafe-logo.png" type="image/x-icon">
+    <script type="module"src="login.js"></script>
+    <meta charset="utf-8">
+   
+ <!-- Import stylesheet -->
+   <link rel="stylesheet" href="login.css">
+   
+ <!-- Import icons -->
+   <!-- Profile icon -->  
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+   
+   <!-- Settings icon -->
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+   
+   <!-- Logout icon -->
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+   
+ <!-- Import fonts -->   
+   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   
+  <!-- Oxygen font -->
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+
+   
+</head>
+<body>  
+  <div class="container">
+    <form class="form" id="login">
+      <h1 class="form__title">Login</h1>
+      <div class="form__message form__message--error"></div>
+      <div class="form__input-group">
+        <input type="text" id="logEmail" class="form__input" autofocus placeholder="CofC Email">
+        <div class="form__input-error-messege"></div>
+      </div>
+      <div class="form__input-group">
+        <input type="password" id="logPassword" class="form__input" autofocus placeholder="Password">
+        <div class="form__input-error-messege"></div>
+      </div>
+      <button class="form__button" type="submit">Continue</button>
+      <p class="form__text">
+        <a class="form__link" href="./" id="linkCreateAccount">Don't have an account? Create an account</a>
+      </p>
+    </form>
+
+    <form class="form form--hidden" id="createAccount">
+      <h1 class="form__title">Create Account</h1>
+      <div class="form__message form__message--error"></div>
+      <div class="form__input-group">
+          <input type="text" id="firstName" class="form__input" autofocus placeholder="First Name">
+          <div class="form__input-error-message"></div>
+      </div>
+      <div class="form__input-group">
+        <input type="text" id="lastName" class="form__input" autofocus placeholder="Last Name">
+        <div class="form__input-error-message"></div>
+    </div>
+      <div class="form__input-group">
+          <input type="text" id="email" class="form__input" autofocus placeholder="CofC Email Address">
+          <div class="form__input-error-message"></div>
+      </div>
+      <div class="form__input-group">
+          <input type="password" id="password" class="form__input" autofocus placeholder="Password">
+          <div class="form__input-error-message"></div>
+      </div>
+      <div class="form__input-group">
+          <input type="password" id="verifPass" class="form__input" autofocus placeholder="Confirm password">
+          <div class="form__input-error-message"></div>
+      </div>
+      <button class="form__button" type="submit" id="registerBtn">Continue</button>
+      <p class="form__text">
+          <a class="form__link" href="./" id="linkLogin">Already have an account? Sign in</a>
+      </p>
+      </form>
+      <footer>
+        <br><small><i>Copyright &copy; 2022 CampuSafe</i><br>
+          <a href="mailto:gillikinme@g.cofc.edu?subject = Feedback&body = Message">Contact Us</a>
+        </small>
+      </footer>
+    </div>
+</body>
+</html>

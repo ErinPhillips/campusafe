@@ -1,0 +1,837 @@
+body 
+{
+   color: black;
+   font-family: 'Oxygen', sans-serif;
+}
+
+#wrapper 
+{
+   margin: auto;
+   width: 80%;
+   height: auto;
+   
+}
+#topHead
+{
+   width: 100%;
+   background-color: #f1f1f1;
+}
+
+#hello-user
+{
+   float: right;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 5px;
+   color: dimgrey;
+   
+}
+
+#profile-dropdown 
+{
+  position: absolute;
+  display: inline-block;
+}
+/* Profile Dropdown Content (Hidden by Default) */
+#profile-dropdown-content 
+{
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+#profile-dropdown-content a 
+{
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+#profile-dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+#profile-dropdown:hover #profile-dropdown-content {display: block;}
+
+/* button to add alert */
+#add-alert
+{
+   background-color: #ee2e24;
+   border-radius: 5px;
+   padding: 5px;
+   color:white;
+   text-decoration: none;
+   text-align: center;
+   float: right;
+   border: 1px solid white;
+   font-size: 15px;
+}
+#add-alert:hover
+{
+   background-color: white;
+   color:#ee2e24;
+   border: 1px solid #ee2e24;
+}
+
+header 
+{
+   text-align: center;
+   width: 100%;
+   padding-top: 10%;
+   padding-bottom: 3%;
+}
+
+header h1 a
+{
+   margin: auto;
+   color: dimgray;
+   font-size: 50px;
+   text-decoration: none;
+  
+}
+
+/* phone navigation styles (dropdown hamburger) */
+
+.menuButton
+{
+   display: none;
+   cursor: pointer;
+   font-size: 30px;
+   float: right;
+   padding: 10px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #f1f1f1;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: dimgray;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: white;
+}
+#web-nav li
+{ 
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
+#web-nav ul 
+{ 
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    padding-left: 0;
+    list-style-type: none; 
+}
+#web-nav a
+{ 
+    text-decoration: none;
+    color: dimgray;
+    font-size: 14px;
+    letter-spacing: .5px;
+}
+#web-nav a:link
+{
+   color:dimgray;
+}
+
+#web-nav a:hover
+{ 
+    color: #ee2e24;
+
+}
+#web-nav a:active
+{ 
+    color: #ee2e24;
+
+}
+
+#map2
+{
+   border-radius: 10px;
+   width:50%;
+   height: 90%;
+   float: left;
+}
+/* Interactive Map (Using Google Maps API) */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 100ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 80%;
+  height: 80%;
+  position: relative;
+  transition: all 100ms ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 100ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  height: 100%;
+}
+.popup .submit
+{
+   transition: all 100ms;
+   text-decoration: none;
+   border: none;
+   width: 50%;
+   padding: 10px;
+   margin: auto;
+   margin-top: 10%;
+   background-color: gainsboro; 
+   border-radius: 5px;
+}
+
+.popup .submit:hover
+{
+   background-color: dimgray; 
+   color: gainsboro;
+}
+
+#report
+{
+   padding: 20px;
+   width: 40%;
+   height: 90%;
+   margin: auto;
+   float: right;
+   
+}
+#report label
+{
+   padding: 0px;
+   font-size: 20px;
+}
+
+footer 
+{
+   text-align: center;
+   width: 100%;
+   bottom: 0;
+}
+
+/* Resources Page */
+#resource-container
+{
+   height: 500px;
+   width: 100%;
+}
+#campus-saftey
+{
+   width: 40%;
+   float: left;
+}
+
+#campus-saftey h3 
+{
+   text-align: center;
+   padding: 0px 0% 10px 10%;
+   margin: 10px 10px;
+}
+
+#campus-saftey a
+{
+   text-align: center;
+   float: left;
+   width: 90%;
+   padding: 10px 10% 10px 10%;
+   margin: 10px 10px;
+   background-color:gainsboro;
+   text-decoration: none; 
+   color: dimgray;
+   
+}
+
+#campus-security-default
+{
+   color: dimgray;
+   background-color: gainsboro;
+   
+}
+#campus-security-hover
+{
+   display: none;
+   color: gainsboro;
+   background-color: dimgray;
+   
+}
+
+#campus-security:hover #campus-security-default
+{
+  display:none;
+}
+
+
+#campus-security:hover #campus-security-hover
+{
+   display: inline-block;
+   color: gainsboro;
+   background-color: dimgray;
+   
+}
+
+#fire-ems-default
+{
+   color: dimgray;
+   background-color: gainsboro;
+   
+}
+#fire-ems-hover
+{
+   display: none;
+   color: gainsboro;
+   background-color: dimgray;
+   
+}
+
+#fire-ems:hover #fire-ems-default
+{
+  display:none;
+}
+
+
+#fire-ems:hover #fire-ems-hover
+{
+   display: inline-block;
+   color: gainsboro;
+   background-color: dimgray;
+   
+}
+
+#public-saftey-default
+{
+   color: dimgray;
+   background-color: gainsboro;
+   
+}
+#public-saftey-hover
+{
+   display: none;
+   color: gainsboro;
+   background-color: dimgray;
+   
+}
+
+#public-saftey:hover #public-saftey-default
+{
+  display:none;
+}
+
+
+#public-saftey:hover #public-saftey-hover
+{
+   display: inline-block;
+   color: gainsboro;
+   background-color: dimgray;
+   
+}
+
+
+#crime-action-default
+{
+   color: dimgray;
+   background-color: gainsboro;
+   
+}
+#crime-action-hover
+{
+   display: none;
+   color: gainsboro;
+   background-color: dimgray;
+   
+}
+
+#crime-action:hover #crime-action-default
+{
+  display:none;
+}
+
+
+#crime-action:hover #crime-action-hover
+{
+   display: inline-block;
+   color: gainsboro;
+   background-color: dimgray;
+   
+}
+
+
+#hotlines 
+{
+   float: right;
+   width: 40%;
+}
+
+#hotlines h3 
+{
+   text-align: center;
+   padding: 0px 30% 10px 10%;
+   margin: 10px 10px;
+}
+
+
+
+#hotlines a
+{
+   text-align: center;
+   float: right;
+   width: 100%;
+   padding: 10px 10% 10px 10%;
+   margin: 10px 10px;
+   background-color:gainsboro;
+   text-decoration: none; 
+   color: dimgray;
+   
+}
+
+#hotline1-default
+{
+   color: dimgray;
+   background-color: gainsboro;
+   
+}
+#hotline1-hover
+{
+   display: none;
+   color: gainsboro;
+   background-color: dimgray;
+   
+}
+
+#hotline1:hover #hotline1-default
+{
+  display:none;
+}
+
+
+#hotline1:hover #hotline1-hover
+{
+   display: inline-block;
+   color: gainsboro;
+   background-color: dimgray;
+   
+}
+
+#hotline2-default
+{
+   color: dimgray;
+   background-color: gainsboro;
+   
+}
+#hotline2-hover
+{
+   display: none;
+   color: gainsboro;
+   background-color: dimgray;
+   
+}
+
+#hotline2:hover #hotline2-default
+{
+  display:none;
+}
+
+
+#hotline2:hover #hotline2-hover
+{
+   display: inline-block;
+   color: gainsboro;
+   background-color: dimgray;
+   
+}
+
+#hotline3-default
+{
+   color: dimgray;
+   background-color: gainsboro;
+   
+}
+#hotline3-hover
+{
+   display: none;
+   color: gainsboro;
+   background-color: dimgray;
+   
+}
+
+#hotline3:hover #hotline3-default
+{
+  display:none;
+}
+
+
+#hotline3:hover #hotline3-hover
+{
+   display: inline-block;
+   color: gainsboro;
+   background-color: dimgray;
+   
+}
+
+
+#hotline4-default
+{
+   color: dimgray;
+   background-color: gainsboro;
+   
+}
+#hotline4-hover
+{
+   display: none;
+   color: gainsboro;
+   background-color: dimgray;
+   
+}
+
+#hotline4:hover #hotline4-default
+{
+  display:none;
+}
+
+
+#hotline4:hover #hotline4-hover
+{
+   display: inline-block;
+   color: gainsboro;
+   background-color: dimgray;
+   
+}
+
+/* Friends Page */
+
+#friends
+{
+   float: left;
+   height: 500px;
+   width:50%;
+   overflow-x: hidden;
+   overflow-y: auto;
+}
+#friends h2
+{
+   text-align: center;
+   color: dimgray;
+   
+}
+#friends dl
+{
+   list-style-type: none;
+   margin-left: 5%;
+}
+#friends dd 
+{
+   margin: 0;
+   font-size: 13px;
+   padding-bottom: 5px;
+   padding-top: 5px;
+}
+
+#friends #time
+{
+   font-size: 11px;
+}
+
+#friend
+{
+   background-color: gainsboro;
+   padding: 20px;
+   margin-bottom: 20px;
+}
+
+/* About Us Page */
+#contact
+{
+   color: dimgray;
+}
+
+/* Login Page */
+form
+{
+   height: 400px;
+   width: 30%;
+   margin: auto;
+   
+}
+#login input[type=text], input[type=password]
+{
+   outline: none;
+   width: 100%;
+}
+input[type=text]:focus 
+{
+  border: 3px solid dimgray;
+}
+label
+{
+   padding-left: 10px;
+}
+form input[type=button]
+{
+   border: none;
+   width: 100%;
+   padding: 10px 20px;
+   margin: 10px;
+   text-decoration: none;
+   color: black;
+
+
+}
+form input[type=button]:hover
+{
+   background-color: gainsboro;
+}
+
+{
+   text-decoration: none;
+   color: black;
+}
+
+
+/* style for tablet screens */
+
+/* style for phone screens */
+@media only screen and (max-width: 600px) {
+
+    /* widen wrapper */
+    #wrapper { 
+       width: 95%;
+       height: 100vh;
+       overflow-y: hidden;
+   }
+   
+   /* center and widen content on screen */
+    #map1, #map2, #report
+   {
+       width: 100%;
+       height: 500px;
+   }
+   
+   
+   #profile-dropdown:hover #profile-dropdown-content {display: none;}
+
+   
+   /* scroll to see overflow content on report popup */
+   .popup .content { overflow-y: scroll; }
+   
+   
+    #drag-alert 
+   {
+      display:block;
+      position: absolute;
+      overflow-y: hidden;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      text-align: center;
+      background-color: white;
+      border: 1px solid #d3d3d3;
+      border-radius: 10px;
+      
+   }
+   #drag-alert-header {
+     padding: 10px;
+     cursor: move;
+     background-color: #f1f1f1;
+     color: dimgray;
+}
+   #alerts
+   {
+      float: left;
+   }
+   #left-side
+   {
+      float: none;
+      width: 100%;
+      margin: auto;
+      height: 400px;
+   }
+   #right-side
+   {
+      display:none;
+   }
+   
+   #alerts dl
+  {
+   margin-left: 0%;
+   
+   }
+   
+   #friends
+   {
+      width: 80%;
+      margin:0% 10% 0% 10%;
+   }
+   
+   #friends dl
+  {
+   margin-left: 0%;
+   
+  }
+  #campus-saftey
+   {
+      width: 100%;
+   }
+   
+   #campus-saftey a
+   {
+      width: 100%;
+   }
+   #campus-security a
+   {
+     padding: 5% 0% 5% 0%;
+   }
+   
+   
+   #fire-ems a
+   {
+     padding: 5% 0% 5% 0%;
+   }
+   
+   #public-saftey a
+   {
+     padding: 5% 0% 5% 0%;
+   }
+   
+   #crime-action a
+   {
+     padding: 5% 0% 5% 0%;
+   }
+   
+   #additional a
+   {
+      padding: 5% 0% 5% 0%;
+     
+   }
+   
+
+   #hotlines
+   {
+      width: 100%;
+   }
+   #hotlines h3
+   {
+      padding: 0px 0% 10px 10%;
+   }
+   
+   #hotline1 a
+   {
+      padding: 5% 0% 5% 0%;
+   }
+   
+   #hotline2
+   {
+      padding: 0% 0% 0% 20%;
+   }
+   #hotline3
+   {
+      padding: 0% 0% 0% 20%;
+   }
+   
+   #hotline4
+   {
+      padding: 0% 0% 0% 20%;
+   }
+   #hotlines a
+   {
+      padding: 5% 5% 5% 5%;
+   }
+   #additional a
+   {
+      display: inline-block;
+   }
+   
+
+   header
+   {
+      width: 100%;
+      height:100px;
+   
+   }
+   .menuButton
+   {
+      display:block;
+      position: absolute;
+      right: 0;
+      padding: 20px;
+      height: 50px;
+      
+   }
+   
+   header h1
+   {
+      padding-top: 10px;
+      font-size: 40px;
+      width: 100%;
+      margin:auto;
+      float: left;
+   }
+   
+
+    #web-nav
+    {
+        display: none;
+    }
+
+}
+   
+   
+    
+
