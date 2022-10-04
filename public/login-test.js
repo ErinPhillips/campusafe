@@ -87,7 +87,8 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(async (userCredential) => {
             // Registered successfuly, redirect to login page
             const uid = userCredential.user.uid;
-            await setDoc(doc(db, "Users", uid), {
+                const functions = require('firebase-functions');
+                await setDoc(doc(db, "Users", uid), {
                 exports.beforeCreate = functions.auth.user().beforeCreate((user, context) => {
                   // (If the user is authenticating within a tenant context, the tenant ID can be determined from
                   // user.tenantId or from context.resource, e.g. 'projects/project-id/tenant/tenant-id-1')
