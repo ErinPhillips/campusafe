@@ -1,4 +1,8 @@
- var map1, map2;
+/* TODOS
+[] connect with firebase
+[] 
+*/
+var map1, map2;
    let markersArray1 = []; 
    let markersArray2 = []; 
    let polyline = null; 
