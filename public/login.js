@@ -1,3 +1,9 @@
+ /*
+TODOS
+[] only allow cofc emails to register
+[] only allow registration of one account per email
+[] error messages for invalid credentials
+*/
  // Import the functions you need from the SDKs you need
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -48,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const createAccountForm = document.querySelector("#createAccount"); // the create account button
 
     // event listener for "need to create account?" link
+    // redirects to create account form when clicked
     document.querySelector("#linkCreateAccount").addEventListener("click", e => {
         e.preventDefault();
         loginForm.classList.add("form--hidden");
@@ -55,13 +62,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // event listener for "already have an account? sign in" link
+    // redirects to login form when clicked
     document.querySelector("#linkLogin").addEventListener("click", e => {
         e.preventDefault();
         loginForm.classList.remove("form--hidden");
         createAccountForm.classList.add("form--hidden");
     });
 
-    // event listener for creating account or login button
+    // event listener for login button
     loginForm.addEventListener("submit", e => {
         e.preventDefault();
         var email = document.getElementById('email').value; //extract email from form
@@ -86,17 +94,18 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     });
 
-    // Sign up with email and password
+    // even listener for create account button
     createAccountForm.addEventListener("submit", async e => {
         e.preventDefault();
+        // extracting values from create account form
         var first = document.getElementById('firstName').value;
         var last = document.getElementById('lastName').value;
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
-        createUserWithEmailAndPassword(auth, email, password)
+        createUserWithEmailAndPassword(auth, email, password) // // firebase method for creating a user - this adds the user to the authentication
             .then(async (userCredential) => {
             // Registered successfuly
-            const uid = userCredential.user.uid;
+            const uid = userCredential.user.uid; // extract UID from firebase auth
             await setDoc(doc(db, "Users", uid), {
                 // add to DB, get user info
                 firstName: first,
@@ -107,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             // redirect to login page
             console.log("doc created");
-            location.replace("./login.html");
+            location.replace("./login.html"); // redirect to log in page -- maybe redirect to home??
         })
             .catch((error) => {
                 const errorCode = error.code;
