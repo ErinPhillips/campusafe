@@ -5,6 +5,7 @@ TODOS
 [x] error messages for invalid credentials - Erin
 [] login doesnt work for chrome
 [] check if login is good for safari
+[x] forgot password link - Erin
 https://firebase.google.com/docs/auth/web/manage-users?authuser=1
 ^^ lots of tools for managing users -- reset password etc. 
 */
@@ -13,7 +14,7 @@ https://firebase.google.com/docs/auth/web/manage-users?authuser=1
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { getFirestore, doc, setDoc, updateDoc, Timestamp} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
 
 // Your web app's Firebase configuration
@@ -57,6 +58,7 @@ function clearInputError(inputElement) {
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.querySelector("#login"); //the login button
     const createAccountForm = document.querySelector("#createAccount"); // the create account button
+    const forgotPassForm = document.querySelector("#resetPassword"); // the forgot password button
 
     // event listener for "need to create account?" link
     // redirects to create account form when clicked
@@ -70,8 +72,22 @@ document.addEventListener("DOMContentLoaded", () => {
     // redirects to login form when clicked
     document.querySelector("#linkLogin").addEventListener("click", e => {
         e.preventDefault();
-        loginForm.classList.remove("form--hidden");
         createAccountForm.classList.add("form--hidden");
+        loginForm.classList.remove("form--hidden");
+    });
+
+    // event listener for "forgot password? link
+    // redirects to forgot password form when clicked
+    document.querySelector("#linkForgotPass").addEventListener("click", e => {
+        e.preventDefault();
+        loginForm.classList.add("form--hidden");
+        forgotPassForm.classList.remove("form--hidden");
+    });
+
+    document.querySelector("#linkCancel").addEventListener("click", e => {
+        e.preventDefault();
+        forgotPassForm.classList.add("form--hidden");
+        loginForm.classList.remove("form--hidden");
     });
 
     // event listener for login button
@@ -139,6 +155,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         });
 
+        // event listener for login button
+    forgotPassForm.addEventListener("submit", e => {
+        e.preventDefault();
+        var email = document.getElementById('tryEmail').value; //extract email from form
+        sendPasswordResetEmail(auth, email)
+            .then(async() => {
+                // password reset email sent!
+                setFormMessage(forgotPassForm, "success", "Password reset email sent successfully");
+                setTimeout(function() {
+                    location.replace("./login.html"); // redirect to log in page after few seconds. 
+                }, 3000);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setFormMessage(forgotPassForm, "error", "That email is not registered. Please try again. ")
+            });
+    });
+
     // error messages for invalid inputs -- DOES NOT STOP USER FROM CONTINUING. 
     document.querySelectorAll(".form__input").forEach(inputElement => {
         inputElement.addEventListener("blur", e => {
@@ -184,7 +219,7 @@ function passwordMatch(pwd, cpwd) {
 // may need to look into cloud functions for firebase 
 //https://firebase.google.com/docs/functions
 // EDIT- this cost money :) but we could store all of our code in firebase under the functions tab...
-// function existingUser(email) {
+function existingUser(auth, email) {
    
-// }
+}
 

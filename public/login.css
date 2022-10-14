@@ -47,6 +47,13 @@ body {
     text-align: center;
 }
 
+.form__subtitle {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .form__message {
     text-align: center;
     margin-bottom: 1rem;
@@ -126,6 +133,30 @@ body {
 
 .form__link:hover {
     text-decoration: underline;
+}
+
+.line-center{
+    margin:0;padding:0 10px;
+    background:#fff;
+    display:inline-block;
+}
+
+h2{
+
+    text-align:center;
+    font-size: 16px;
+    position:relative;
+    z-index:2;
+
+}
+h2:after{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:0;
+    right:0;
+    border-top:solid 1px var(--color-primary);
+    z-index:-1;
 }
 footer 
 {
