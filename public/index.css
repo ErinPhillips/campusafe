@@ -70,6 +70,15 @@
    margin-bottom: 20px;
 }
 
+textarea {
+   resize: none;
+   height: 10%;
+}
+
+textarea::-webkit-scrollbar {
+   display:none;
+}
+
 
 /* style for phone screens */
 @media only screen and (max-width: 600px) {

@@ -61,7 +61,7 @@ function canSubmit(formId)
    if(formId == "report")
    {
       let notComplete = []
-      if(document.getElementById("location").innerText == "Click on map to add location")
+      if(document.getElementById("location").innerText == "")
       {
          notComplete.push("location");
       }
@@ -74,11 +74,11 @@ function canSubmit(formId)
          notComplete.push("time");
       }
       
-      if(document.getElementById("incident").value == "none")
+      if(document.getElementById("incident").value == "")
       {
          notComplete.push("incident");
       }
-      if(document.getElementById("crime").value == "none")
+      if(document.getElementById("crime").value == "")
       {
          notComplete.push("crime");
       }
@@ -88,21 +88,22 @@ function canSubmit(formId)
       {
          window.location = '#';
       }
-      else
-      {
-         for(let i = 0; i < notComplete.length; i++)
-         {
-            if(notComplete[i] == "location")
-            {
-               document.getElementById(notComplete[i]).style = "color:red"
-            }
-            else
-            {
-            document.getElementById(notComplete[i]).style = "border-color:red"
-            }
-         }
+      // else
+      // {
+      //    for(let i = 0; i < notComplete.length; i++)
+      //    {
+      //       if(notComplete[i] == "location")
+      //       {
+      //          document.getElementById(notComplete[i]).style = "color:red"
+      //       }
+      //       else
+      //       {
+      //       document.getElementById(notComplete[i]).style = "border-color:red"
+      //       }
+      //    }
          
-      }
+      // }
       
    }
 }
+

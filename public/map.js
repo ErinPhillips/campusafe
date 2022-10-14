@@ -62,9 +62,8 @@ var map1, map2;
 
         addMarker(latlng);
            
-        document.getElementById("location").innerText = response.results[0].formatted_address;
-           
-        document.getElementById("location").style = "color:black"
+        document.getElementById("location").value = response.results[0].formatted_address;
+        document.getElementById("location").style = "color:black; border: none"
       } else {
         window.alert("No results found");
       }
@@ -90,7 +89,7 @@ function addMarker(latLng) {
         position: latLng,
         draggable: true
     });
-   document.getElementById("location").innerText = marker2.position.formatted_address;
+   document.getElementById("location").value = marker2.position.formatted_address;
 
     //store the marker object drawn on map in global array
     markersArray1.push(marker1);

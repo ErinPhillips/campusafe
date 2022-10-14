@@ -6,6 +6,7 @@ TODOS
 [] login doesnt work for chrome
 [] check if login is good for safari
 [x] forgot password link - Erin
+[] somehow integrate "states" that customize the users experience based on their data. 
 https://firebase.google.com/docs/auth/web/manage-users?authuser=1
 ^^ lots of tools for managing users -- reset password etc. 
 */
@@ -125,8 +126,8 @@ document.addEventListener("DOMContentLoaded", () => {
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
         var cpassword = document.getElementById('verifPass').value;
-
-        if(validateEmail(email) && passwordMatch(password, cpassword)) { // this if statement actually prohibits a user from continuing if inputs are not valid
+        // this if statement actually prohibits a user from continuing if inputs are not valid or email is already registered
+        if(validateEmail(email) && passwordMatch(password, cpassword)) { 
             createUserWithEmailAndPassword(auth, email, password) // // firebase method for creating a user - this adds the user to the authentication
                 .then(async (userCredential) => {
                 // Registered successfuly
@@ -189,6 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (e.target.id === "verifPass" && !passwordMatch(e.target.value, document.getElementById('password').value)) {
                 setInputError(inputElement, "Passwords do no match");
             }
+            
         });
 
         inputElement.addEventListener("input", e => {
@@ -219,7 +221,15 @@ function passwordMatch(pwd, cpwd) {
 // may need to look into cloud functions for firebase 
 //https://firebase.google.com/docs/functions
 // EDIT- this cost money :) but we could store all of our code in firebase under the functions tab...
-function existingUser(auth, email) {
-   
-}
+// function existingUser(email) {
+//    getUserByEmail(email)
+//    .then((userRecord) => {
+//         //user exists. Do not allow sign-up
+//         return false;
+//    })
+//    .catch((error) => {
+//         //user does not exist. Continue with sign up
+//         return true;
+//    })
+// }
 
