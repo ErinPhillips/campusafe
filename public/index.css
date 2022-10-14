@@ -72,7 +72,8 @@
 
 textarea {
    resize: none;
-   height: 10%;
+   height: 5%;
+   width: 80%;
 }
 
 textarea::-webkit-scrollbar {
