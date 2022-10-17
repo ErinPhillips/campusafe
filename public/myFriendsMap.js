@@ -2,10 +2,7 @@
 [] connect with firebase
 [] 
 */
-var map1, map2;
-   let markersArray1 = []; 
-   let markersArray2 = []; 
-   let polyline = null; 
+var map3;
      
    function drawMap() {
       var myStyles =[
@@ -32,36 +29,20 @@ var map1, map2;
       
        mapOptions.center = new google.maps.LatLng(32.78357208741187, -79.93661390988309);
       
-       map1 = new google.maps.Map(document.getElementById("map1"), mapOptions);
-
-       mapOptions.center = new google.maps.LatLng(32.78357208741187, -79.93661390988309); 
+       map3 = new google.maps.Map(document.getElementById("map3"), mapOptions);
       
-       map2 = new google.maps.Map(document.getElementById("map2"), mapOptions);
-      
-      
-       
-       map2.addListener('click', function(e) {
-         setMapAll(markersArray1, null);
-         setMapAll(markersArray2, null);
-         deleteMarkers();
-         document.getElementById("latlng").innerText = e.latLng;
-         geocodeLatLng(geocoder, map2);
-       
-       });
-       const locationButton = document.createElement("button");
-
        window.addEventListener("load", () => {
        if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
+       navigator.geolocation.getCurrentPosition(
         (position) => {
           const pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-          map1.setCenter(pos);
+          map3.setCenter(pos);
           var marker = new google.maps.Marker({
           position: pos,
-          map: map1,
+          map: map3,
           icon: {
           path: google.maps.SymbolPath.CIRCLE,
           scale: 10,

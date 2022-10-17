@@ -3,11 +3,18 @@
 <head>
     <title> CampuSafe </title>
    <link rel="icon" href="images/CampuSafe-logo.png" type="image/x-icon">
-    <meta charset="utf-8">
+   <meta charset="utf-8">
 
    
  <!-- Import stylesheet -->
    <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="myFriends.css">
+   
+   <!-- import JS files -->
+   
+    <script type="text/javascript" src="myFriendsMap.js"></script>
+   
+   <script type="text/javascript" src="events.js"></script>
    
  <!-- Import icons -->
    <!-- Profile icon -->  
@@ -34,47 +41,45 @@
    
 <div id="wrapper">
    
-   <div id = "topHead">
+      <div id = "topHead">
     <div id = "profile-dropdown">
-        <a id= "profile-icon" href="profile.html" style="color: dimgray"><span class="material-symbols-outlined" >person_filled</span></a>
+        <a id= "profile-icon" href="#profile-popup" style="color: dimgray"><span class="material-symbols-outlined" >person_filled</span></a>
         <div id = "hello-user">Hello User!</div>
         <div id="profile-dropdown-content">
-         <a href="profile.html" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">person_filled</span>My Profile</a>
+         <a href="#profile-popup" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">person_filled</span>My Profile</a>
          <a href="settings.html" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">settings</span>Settings</a>
          <a href="login.html" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">logout</span>Logout</a>
         </div>
     
       </div>
+       <!-- Add Alert Button, users click to open up a popup where they can report an incident -->
+      <a id="add-alert" href="#report-popup">Report Incident</a>
    </div>
-     <header>
+   <header>
+      
     <h1><a href = "index.html"><img src="images/CampuSafe-logo.png" height="50" alt = "CampuSafe logo">&nbsp;Campu<class id="redText" style="color:#ee2e24">Safe</class></a></h1>
-       
-   <div class = "nav-dropdown">
-      <button onclick="togglePhoneNav()" class="dropbtn"><span class="material-symbols-outlined">menu</span></button>
-      <div id="dropdown" class="dropdown-content">
-         <a href = "index.html">Alerts</a>
-         <a href = "myFriends.html">My Friends</a>
-         <a href = "resources.html">Resources</a>
-         <a href = "aboutUs.html">About Us</a>
-         <a href="profile.html">My Profile</a>
-         <a href="settings.html">Settings</a>
-         <a href="login.html">Logout</a>
-      </div>
-   </div>
-   </header>
-    
-     <nav id="web-nav">
+   
+      <!-- Menu Nav for mobile browser (slides from right side of screen) -->
+      
+      <span class="menuButton" onclick="openNav()">&#9776;</span>
+      
+      <!-- Menu Nav for web browser (appears across top of screen) -->
+     
+      <nav id = "web-nav">
         <ul>
-        <li><img id="nav-logo" style="visibility: hidden"src="images/nav-logo.png"><a href = "index.html">Alerts</a></li>
-        <li><a href = "myFriends.html"><img id="nav-logo" src="images/nav-logo.png">My Friends</a></li>
+        <li><a href = "index.html"><img style="visibility: hidden" id="nav-logo" src="images/nav-logo.png">Alerts</a></li>
+        <li><img id="nav-logo"  src="images/nav-logo.png"><a href = "myFriends.html">My Friends</a></li>
         <li><img id="nav-logo" style="visibility: hidden" src="images/nav-logo.png"><a href = "resources.html">Resources</a></li>
         <li><img id="nav-logo" style="visibility: hidden" src="images/nav-logo.png"><a href = "aboutUs.html">About Us</a></li>
          </ul>
     </nav>
-   
-   <div id="map1"></div>
+   </header>
+    <div id="left-side">
+       <div id="map3" class="map-item"> </div>
+   </div>
    
    <div id = "friends">
+      
    <h2>My Friends</h2>
    <dl>
       <div id = "friend">
@@ -112,95 +117,10 @@
    </footer>
 </div>
    
-  <script type="text/javascript">
-   var map1, map2;
-   let markersArray = []; 
-   let polyline = null; 
-     
-   function drawMap() {
-
-       var myStyles =[
-         {
-            featureType: "poi",
-            elementType: "labels",
-            stylers: [
-               {visibility: "off"}
-            ]
-         }
-      ];
-      
-       var mapOptions = {
-         zoom: 15,
-         mapTypeId: google.maps.MapTypeId.ROADMAP,
-         styles: myStyles,
-         streetViewControl: false,  //don't show the  pegman 
-         mapTypeControl: false,
-         fullscreenControl: false
-        }
-       mapOptions.center = new google.maps.LatLng(32.78357208741187, -79.93661390988309); // London
-       map1 = new google.maps.Map(document.getElementById("map1"), mapOptions);
-
-       mapOptions.center = new google.maps.LatLng(32.78357208741187, -79.93661390988309); // Amsterdam
-       map2 = new google.maps.Map(document.getElementById("map2"), mapOptions);
-      
-       map2.addListener('click', function(e) {
-       console.log(e);
-       addMarker(e.latLng);
-      
-       drawPolyline();
-       });
- }
-     
-function addMarker(latLng) {
-    let marker1 = new google.maps.Marker({
-        map: map1,
-        position: latLng,
-        draggable: true
-    });
-   let marker2 = new google.maps.Marker({
-        map: map2,
-        position: latLng,
-        draggable: true
-    });
-
-    //store the marker object drawn on map in global array
-    markersArray.push(marker1);
-  }
-
-function drawPolyline() {
-  let markersPositionArray = [];
-  // obtain latlng of all markers added on map
-  markersArray.forEach(function(e) {
-    markersPositionArray.push(e.getPosition());
-  });
-  
-  // check if there is already polyline drawn on map
-  // remove the polyline from map before we draw new one
-  if (polyline !== null) {
-    polyline.setMap(null);
-  }
-  
-  // draw new polyline at markers' position
-  polyline = new google.maps.Polyline({
-    map: map2,
-    path: markersPositionArray,
-    strokeOpacity: 0.4
-  });
-}
-</script>  
-<script async defer
+ 
+   <script async defer
      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQy4vKcZsMzbEjzqRb44n0AsvnmgMFC30&callback=drawMap">
-   </script>
-   
-   
-   
-   <script>
-   // toggles nav content when menu button is clicked on mobile browser
-function toggleVisibility()
-{
-  document.getElementById('dropdown').classList.toggle("show");
-}
+</script>
 
-   </script>
 </body>
 </html>

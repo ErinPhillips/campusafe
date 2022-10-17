@@ -28,17 +28,18 @@
    background-color:gainsboro;
    text-decoration: none; 
    color: dimgray;
+   border-radius: 5px;
    
    
 }
 
-#campus-security-default, #fire-ems-default, #public-saftey-default, #crime-action-default
+.default
 {
    color: dimgray;
    background-color: gainsboro;
    
 }
-#campus-security-hover
+.hover
 {
    display: none;
    color: gainsboro;
@@ -46,78 +47,13 @@
    
 }
 
-#campus-security:hover #campus-security-default
+#campus-security:hover #campus-security-default, #fire-ems:hover #fire-ems-default, #public-saftey:hover #public-saftey-default, #crime-action:hover #crime-action-default, #hotline1:hover #hotline1-default, #hotline2:hover #hotline2-default, #hotline3:hover #hotline3-default, #hotline4:hover #hotline4-default
 {
   display:none;
 }
 
 
-#campus-security:hover #campus-security-hover
-{
-   display: inline-block;
-   color: gainsboro;
-   background-color: dimgray;
-   
-}
-
-
-#fire-ems-hover
-{
-   display: none;
-   color: gainsboro;
-   background-color: dimgray;
-   
-}
-
-#fire-ems:hover #fire-ems-default
-{
-  display:none;
-}
-
-
-#fire-ems:hover #fire-ems-hover
-{
-   display: inline-block;
-   color: gainsboro;
-   background-color: dimgray;
-   
-}
-#public-saftey-hover
-{
-   display: none;
-   color: gainsboro;
-   background-color: dimgray;
-   
-}
-
-#public-saftey:hover #public-saftey-default
-{
-  display:none;
-}
-
-
-#public-saftey:hover #public-saftey-hover
-{
-   display: inline-block;
-   color: gainsboro;
-   background-color: dimgray;
-   
-}
-#crime-action-hover
-{
-   display: none;
-   color: gainsboro;
-   background-color: dimgray;
-   
-}
-
-#crime-action:hover #crime-action-default
-{
-  display:none;
-}
-
-
-#crime-action:hover #crime-action-hover
+#campus-security:hover #campus-security-hover, #fire-ems:hover #fire-ems-hover, #public-saftey:hover #public-saftey-hover, #crime-action:hover #crime-action-hover, #hotline1:hover #hotline1-hover, #hotline2:hover #hotline2-hover, #hotline3:hover #hotline3-hover, #hotline4:hover #hotline4-hover
 {
    display: inline-block;
    color: gainsboro;
@@ -151,112 +87,7 @@
    background-color:gainsboro;
    text-decoration: none; 
    color: dimgray;
-   
-}
-
-#hotline1-default
-{
-   color: dimgray;
-   background-color: gainsboro;
-   
-}
-#hotline1-hover
-{
-   display: none;
-   color: gainsboro;
-   background-color: dimgray;
-   
-}
-
-#hotline1:hover #hotline1-default
-{
-  display:none;
-}
-
-
-#hotline1:hover #hotline1-hover
-{
-   display: inline-block;
-   color: gainsboro;
-   background-color: dimgray;
-   
-}
-
-#hotline2-default
-{
-   color: dimgray;
-   background-color: gainsboro;
-   
-}
-#hotline2-hover
-{
-   display: none;
-   color: gainsboro;
-   background-color: dimgray;
-   
-}
-
-#hotline2:hover #hotline2-default
-{
-  display:none;
-}
-
-
-#hotline2:hover #hotline2-hover
-{
-   display: inline-block;
-   color: gainsboro;
-   background-color: dimgray;
-   
-}
-
-#hotline1-default, #hotline2-default, #hotline3-default, #hotline4-default
-{
-   color: dimgray;
-   background-color: gainsboro;
-   
-}
-#hotline3-hover
-{
-   display: none;
-   color: gainsboro;
-   background-color: dimgray;
-   
-}
-
-#hotline3:hover #hotline3-default
-{
-  display:none;
-}
-
-
-#hotline3:hover #hotline3-hover
-{
-   display: inline-block;
-   color: gainsboro;
-   background-color: dimgray;
-   
-}
-
-#hotline4-hover
-{
-   display: none;
-   color: gainsboro;
-   background-color: dimgray;
-   
-}
-
-#hotline4:hover #hotline4-default
-{
-  display:none;
-}
-
-
-#hotline4:hover #hotline4-hover
-{
-   display: inline-block;
-   color: gainsboro;
-   background-color: dimgray;
+   border-radius: 5px;
    
 }
 
@@ -314,7 +145,7 @@
       padding: 5% 0% 5% 0%;
    }
    
-   #hotline2
+   #hotline1 a, #hotline2 a, #hotline3 a, #hotline4 a
    {
       padding: 0% 0% 0% 20%;
    }

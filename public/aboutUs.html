@@ -43,39 +43,34 @@ $_POST["Insert Your Message"]. "From: gillikinme@g.cofc.edu");
    
    <div id = "topHead">
     <div id = "profile-dropdown">
-        <a id= "profile-icon" href="profile.html" style="color: dimgray"><span class="material-symbols-outlined" >person_filled</span></a>
+        <a id= "profile-icon" href="#profile-popup" style="color: dimgray"><span class="material-symbols-outlined" >person_filled</span></a>
         <div id = "hello-user">Hello User!</div>
         <div id="profile-dropdown-content">
-         <a href="profile.html" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">person_filled</span>My Profile</a>
+         <a href="#profile-popup" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">person_filled</span>My Profile</a>
          <a href="settings.html" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">settings</span>Settings</a>
          <a href="login.html" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">logout</span>Logout</a>
         </div>
     
       </div>
+       <!-- Add Alert Button, users click to open up a popup where they can report an incident -->
+      <a id="add-alert" href="#report-popup">Report Incident</a>
    </div>
-    <header>
+   <header>
+      
     <h1><a href = "index.html"><img src="images/CampuSafe-logo.png" height="50" alt = "CampuSafe logo">&nbsp;Campu<class id="redText" style="color:#ee2e24">Safe</class></a></h1>
-    
-    <div class = "nav-dropdown">
-      <button onclick="togglePhoneNav()" class="dropbtn"><span class="material-symbols-outlined">menu</span></button>
-      <div id="dropdown" class="dropdown-content">
-         <a href = "index.html">Alerts</a>
-         <a href = "myFriends.html">My Friends</a>
-         <a href = "resources.html">Resources</a>
-         <a href = "aboutUs.html">About Us</a>
-         <a href="profile.html">My Profile</a>
-         <a href="settings.html">Settings</a>
-         <a href="login.html">Logout</a>
-      </div>
-   </div>
-   </header>
-    
-     <nav id="web-nav">
+   
+      <!-- Menu Nav for mobile browser (slides from right side of screen) -->
+      
+      <span class="menuButton" onclick="openNav()">&#9776;</span>
+      
+      <!-- Menu Nav for web browser (appears across top of screen) -->
+     
+      <nav id = "web-nav">
         <ul>
-        <li><img id="nav-logo" style="visibility: hidden"src="images/nav-logo.png"><a href = "index.html">Alerts</a></li>
-        <li><a href = "myFriends.html"><img id="nav-logo" style="visibility: hidden" src="images/nav-logo.png">My Friends</a></li>
+        <li><a href = "index.html"><img style="visibility: hidden" id="nav-logo" src="images/nav-logo.png">Alerts</a></li>
+        <li><img id="nav-logo" style="visibility: hidden" src="images/nav-logo.png"><a href = "myFriends.html">My Friends</a></li>
         <li><img id="nav-logo" style="visibility: hidden" src="images/nav-logo.png"><a href = "resources.html">Resources</a></li>
-        <li><img id="nav-logo"src="images/nav-logo.png"><a href = "aboutUs.html">About Us</a></li>
+        <li><img id="nav-logo" src="images/nav-logo.png"><a href = "aboutUs.html">About Us</a></li>
          </ul>
     </nav>
    
