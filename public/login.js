@@ -1,14 +1,21 @@
  /*
 TODOS
-[] only allow cofc emails to register
+[x] only allow cofc emails to register - Erin
 [] only allow registration of one account per email
-[] error messages for invalid credentials
+[x] error messages for invalid credentials - Erin
+[] login doesnt work for chrome
+[] check if login is good for safari
+[x] forgot password link - Erin
+[] somehow integrate "states" that customize the users experience based on their data. 
+https://firebase.google.com/docs/auth/web/manage-users?authuser=1
+^^ lots of tools for managing users -- reset password etc. 
 */
+
  // Import the functions you need from the SDKs you need
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { getFirestore, doc, setDoc, updateDoc, Timestamp} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
 
 // Your web app's Firebase configuration
@@ -52,6 +59,7 @@ function clearInputError(inputElement) {
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.querySelector("#login"); //the login button
     const createAccountForm = document.querySelector("#createAccount"); // the create account button
+    const forgotPassForm = document.querySelector("#resetPassword"); // the forgot password button
 
     // event listener for "need to create account?" link
     // redirects to create account form when clicked
@@ -65,15 +73,29 @@ document.addEventListener("DOMContentLoaded", () => {
     // redirects to login form when clicked
     document.querySelector("#linkLogin").addEventListener("click", e => {
         e.preventDefault();
-        loginForm.classList.remove("form--hidden");
         createAccountForm.classList.add("form--hidden");
+        loginForm.classList.remove("form--hidden");
+    });
+
+    // event listener for "forgot password? link
+    // redirects to forgot password form when clicked
+    document.querySelector("#linkForgotPass").addEventListener("click", e => {
+        e.preventDefault();
+        loginForm.classList.add("form--hidden");
+        forgotPassForm.classList.remove("form--hidden");
+    });
+
+    document.querySelector("#linkCancel").addEventListener("click", e => {
+        e.preventDefault();
+        forgotPassForm.classList.add("form--hidden");
+        loginForm.classList.remove("form--hidden");
     });
 
     // event listener for login button
     loginForm.addEventListener("submit", e => {
         e.preventDefault();
-        var email = document.getElementById('email').value; //extract email from form
-        var password = document.getElementById('password').value; //extract password from form
+        var email = document.getElementById('logEmail').value; //extract email from form
+        var password = document.getElementById('logPassword').value; //extract password from form
         signInWithEmailAndPassword(auth, email, password) // imported firebase method for authentication of credentials
             .then(async (userCredential) => {
                 // Signed in
@@ -94,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     });
 
+
     // even listener for create account button
     createAccountForm.addEventListener("submit", async e => {
         e.preventDefault();
@@ -102,27 +125,111 @@ document.addEventListener("DOMContentLoaded", () => {
         var last = document.getElementById('lastName').value;
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
-        createUserWithEmailAndPassword(auth, email, password) // // firebase method for creating a user - this adds the user to the authentication
-            .then(async (userCredential) => {
-            // Registered successfuly
-            const uid = userCredential.user.uid; // extract UID from firebase auth
-            await setDoc(doc(db, "Users", uid), {
-                // add to DB, get user info
-                firstName: first,
-                lastName: last,
-                email: email,
-                dateCreated: Timestamp.now(),
-                lastLogin: Timestamp.now()
+        var cpassword = document.getElementById('verifPass').value;
+        // this if statement actually prohibits a user from continuing if inputs are not valid or email is already registered
+        if(validateEmail(email) && passwordMatch(password, cpassword)) { 
+            createUserWithEmailAndPassword(auth, email, password) // // firebase method for creating a user - this adds the user to the authentication
+                .then(async (userCredential) => {
+                // Registered successfuly
+                const uid = userCredential.user.uid; // extract UID from firebase auth
+                await setDoc(doc(db, "Users", uid), {
+                    // add to DB, get user info
+                    firstName: first,
+                    lastName: last,
+                    email: email,
+                    dateCreated: Timestamp.now(),
+                    lastLogin: Timestamp.now()
+                })
+                // redirect to login page
+                console.log("doc created");
+                location.replace("./login.html"); // redirect to log in page -- maybe redirect to home??
             })
-            // redirect to login page
-            console.log("doc created");
-            location.replace("./login.html"); // redirect to log in page -- maybe redirect to home??
-        })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // registration failed
+                    setFormMessage(createAccountForm, "error", "Account Creation Failed.");
+                });
+            }
+        else {
+            setFormMessage(createAccountForm, "error", "Invalid email or passwords do not match. Please try again.");
+        }
+        });
+
+        // event listener for login button
+    forgotPassForm.addEventListener("submit", e => {
+        e.preventDefault();
+        var email = document.getElementById('tryEmail').value; //extract email from form
+        sendPasswordResetEmail(auth, email)
+            .then(async() => {
+                // password reset email sent!
+                setFormMessage(forgotPassForm, "success", "Password reset email sent successfully");
+                setTimeout(function() {
+                    location.replace("./login.html"); // redirect to log in page after few seconds. 
+                }, 3000);
+            })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                // registration failed
-                setFormMessage(createAccountForm, "error", "Account Creation Failed.");
+                setFormMessage(forgotPassForm, "error", "That email is not registered. Please try again. ")
             });
+    });
+
+    // error messages for invalid inputs -- DOES NOT STOP USER FROM CONTINUING. 
+    document.querySelectorAll(".form__input").forEach(inputElement => {
+        inputElement.addEventListener("blur", e => {
+            if (e.target.id === "firsName" && e.target.value === "") {
+                setInputError(inputElement, "This field cannot be empty");
+            }
+            if (e.target.id === "lastName" && e.target.value === "") {
+                setInputError(inputElement, "This field cannot be empty");
+            }
+            if (e.target.id === "email" && !validateEmail(e.target.value)) {
+                setInputError(inputElement, "Must be a valid CofC email");
+            }
+            if (e.target.id === "verifPass" && !passwordMatch(e.target.value, document.getElementById('password').value)) {
+                setInputError(inputElement, "Passwords do no match");
+            }
+            
+        });
+
+        inputElement.addEventListener("input", e => {
+            clearInputError(inputElement);
         });
     });
+});
+
+
+function validateEmail(email) {
+    var student = new RegExp("@g.cofc.edu", );
+    var staff = new RegExp("@cofc.edu", );
+
+    if(student.test(email) || staff.test(email)) {
+        return true;
+    }
+    else { return false; }
+}
+
+function passwordMatch(pwd, cpwd) {
+    if(pwd === cpwd) {
+        return true;
+    }
+    else {return false; }
+}
+
+// I have read that doing this type of verification is not safe/secure on client side(this way)
+// may need to look into cloud functions for firebase 
+//https://firebase.google.com/docs/functions
+// EDIT- this cost money :) but we could store all of our code in firebase under the functions tab...
+// function existingUser(email) {
+//    getUserByEmail(email)
+//    .then((userRecord) => {
+//         //user exists. Do not allow sign-up
+//         return false;
+//    })
+//    .catch((error) => {
+//         //user does not exist. Continue with sign up
+//         return true;
+//    })
+// }
+

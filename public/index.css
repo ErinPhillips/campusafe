@@ -73,6 +73,16 @@
    border-radius: 5px;
 }
 
+textarea {
+   resize: none;
+   height: 5%;
+   width: 80%;
+}
+
+textarea::-webkit-scrollbar {
+   display:none;
+}
+
 
 /* style for phone screens */
 @media only screen and (max-width: 600px) {

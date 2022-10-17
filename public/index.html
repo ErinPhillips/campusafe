@@ -178,7 +178,8 @@
              <div id="map2" class="map-item"> </div>
              <form id = "report">
                 <label for="location" >Location  *</label>
-                <div id="location">Click on map to add location</div>
+                <br>
+                <textarea type="location" required id="location" style="border:none;" autofocus placeholder="Click on the map to add a location"></textarea>
                 <br>
                 <label for="date">Date  *</label>
                 <br>
@@ -194,8 +195,8 @@
                 <label for="incident">Incident  *</label>
                 <br>
                 <select id="incident" required name="incident">
-                   
-                <option value="none" selected disabled hidden>Select an Option</option>
+               
+                <option value="" >Select an Option</option>
                 <option value="theft">Theft</option>
                 <option value="shooting">Shooting</option>
                 <option value="harrassment">Harassment</option>
@@ -208,14 +209,15 @@
                 <br>
                 <label for="crime">Was this a violent crime?  *</label><br>
                 <select id="crime" required name="crime">
-                <option value="none" selected disabled hidden>Select an Option</option>
+                <option value="" selected>Select an Option</option>
                 <option value="non-violent">Non-Violent</option>
                 <option value="violent">Violent</option>
                 </select>
                 <br>
                 <br>
                 <label for="additional-info">Additional Information</label><br>
-                <textarea wrap="soft" style="resize:none; height:10%"></textarea>
+                <textarea wrap="soft" style="resize:none; height:10%;"></textarea>
+                <br>
                 <input type=submit name="submit" class="submit">
                 <br>
                 <br>
