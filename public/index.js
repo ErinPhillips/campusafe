@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> 914a90ef95284fca0e7357be2e3fa8374ebc854d
 // allows user to drag the mobile alert content up and down
 
 dragElement(document.getElementById("drag-alert"));
