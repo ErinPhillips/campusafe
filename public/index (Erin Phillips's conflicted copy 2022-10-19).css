@@ -24,12 +24,13 @@
 #alerts 
 {
    width: 100%;
-   height: 85%;
+   height: 100%;
    overflow-x: hidden;
    overflow-y: scroll;
 }
 
-#alertsHeader
+
+#alerts h2
 {
    text-align: center;
    color: dimgray;
@@ -53,7 +54,6 @@
    background-color: lightsalmon;
    padding: 20px;
    margin-bottom: 20px;
-   border-radius: 5px;
 }
 
 #alerts #weather
@@ -61,7 +61,6 @@
    background-color: #FAE68E;
    padding: 20px;
    margin-bottom: 20px;
-   border-radius: 5px;
 }
    
 #alerts #violent
@@ -69,7 +68,6 @@
    background-color: lightcoral;
    padding: 20px;
    margin-bottom: 20px;
-   border-radius: 5px;
 }
 
 textarea {
@@ -99,7 +97,7 @@ textarea::-webkit-scrollbar {
       position: absolute;
       overflow-y: scroll;
       width: 100%;
-      height: 100%;
+      height: 600px;
       margin-left: auto;
       margin-right: auto;
       left: 0;

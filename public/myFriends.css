@@ -12,19 +12,42 @@
    height: 100%;
    float: left;
 }
+#right-side{
+   float: right;
+   width: 50%;
+   height: 500px;
 
+}
 #friends
 {
-   float: left;
-   height: 500px;
-   width:50%;
+   height: 85%;
+   width:100%;
    overflow-x: hidden;
    overflow-y: auto;
 }
-#friends h2
+#friendsHeader
 {
-   text-align: center;
+   width: 100%;
+   margin-left: 30%;
    color: dimgray;
+   
+}
+#addFriendButton
+{
+   float: right;
+   width: 30px;
+   height: 30px;
+   margin-top: 20px;
+   margin-right: 20px;
+   border: none;
+   border-radius: 5px;
+   color: dimgray;
+   
+}
+#addFriendButton:hover
+{
+   background-color: gainsboro;
+   cursor:pointer;
    
 }
 #friends dl

@@ -1,13 +1,9 @@
-
-
-
-
-
 // allows user to drag the mobile alert content up and down
 
 dragElement(document.getElementById("drag-alert"));
    
- function dragElement(elmnt) {
+ function dragElement(elmnt) 
+{
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "-header")) {
     // if present, the header is where you move the DIV from:
@@ -17,7 +13,8 @@ dragElement(document.getElementById("drag-alert"));
     elmnt.ontouchstart = dragMouseDown;
   }
 
-  function dragMouseDown(e) {
+  function dragMouseDown(e) 
+   {
     e = e || window.event;
     e.preventDefault();
     // get the mouse cursor position at startup:
@@ -27,7 +24,8 @@ dragElement(document.getElementById("drag-alert"));
     document.ontouchmove = elementDrag;
   }
 
-  function elementDrag(e) {
+  function elementDrag(e) 
+   {
     e = e || window.event;
     e.preventDefault();
     // calculate the new cursor position
@@ -37,10 +35,10 @@ dragElement(document.getElementById("drag-alert"));
     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
   }
 
-  function closeDragElement() {
+  function closeDragElement() 
+   {
     // stop moving when mouse button is released:
     document.ontouchend = null;
     document.ontouchmove = null;
   }
  }
-

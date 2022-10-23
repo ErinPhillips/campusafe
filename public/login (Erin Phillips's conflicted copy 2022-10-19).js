@@ -1,7 +1,7 @@
  /*
 TODOS
 [x] only allow cofc emails to register - Erin
-[] only allow registration of one account per email
+[x] only allow registration of one account per email - Erin
 [x] error messages for invalid credentials - Erin
 [] login doesnt work for chrome
 [] check if login is good for safari
@@ -15,7 +15,7 @@ https://firebase.google.com/docs/auth/web/manage-users?authuser=1
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js';
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail, fetchSignInMethodsForEmail} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js';
 import { getFirestore, doc, setDoc, updateDoc, Timestamp} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js';
 
 // Your web app's Firebase configuration
@@ -126,6 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
         var cpassword = document.getElementById('verifPass').value;
+
         // this if statement actually prohibits a user from continuing if inputs are not valid or email is already registered
         if(validateEmail(email) && passwordMatch(password, cpassword)) { 
             createUserWithEmailAndPassword(auth, email, password) // // firebase method for creating a user - this adds the user to the authentication
@@ -140,15 +141,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     dateCreated: Timestamp.now(),
                     lastLogin: Timestamp.now()
                 })
+                setFormMessage(createAccountForm, "success", "Account created successfully!");
                 // redirect to login page
-                console.log("doc created");
-                location.replace("./login.html"); // redirect to log in page -- maybe redirect to home??
+                setTimeout(function() {
+                    location.replace("./login.html"); // redirect to log in page after few seconds. 
+                }, 2000); // redirect to log in page -- maybe redirect to home??
             })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     // registration failed
-                    setFormMessage(createAccountForm, "error", "Account Creation Failed.");
+                    setFormMessage(createAccountForm, "error", "An account with this email already exists. Please log in.");
                 });
             }
         else {
@@ -166,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 setFormMessage(forgotPassForm, "success", "Password reset email sent successfully");
                 setTimeout(function() {
                     location.replace("./login.html"); // redirect to log in page after few seconds. 
-                }, 3000);
+                }, 2000);
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -216,24 +219,3 @@ function passwordMatch(pwd, cpwd) {
     }
     else {return false; }
 }
-
-
-
-
-
-// I have read that doing this type of verification is not safe/secure on client side(this way)
-// may need to look into cloud functions for firebase 
-//https://firebase.google.com/docs/functions
-// EDIT- this cost money :) but we could store all of our code in firebase under the functions tab...
-// function existingUser(email) {
-//    getUserByEmail(email)
-//    .then((userRecord) => {
-//         //user exists. Do not allow sign-up
-//         return false;
-//    })
-//    .catch((error) => {
-//         //user does not exist. Continue with sign up
-//         return true;
-//    })
-// }
-
