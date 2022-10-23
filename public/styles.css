@@ -281,47 +281,6 @@ footer
    color: dimgray;
 }
 
-/* Login Page */
-form
-{
-   height: 400px;
-   width: 30%;
-   margin: auto;
-   
-}
-
-input[type=text]:focus 
-{
-  border: 3px solid dimgray;
-}
-label
-{
-   padding-left: 10px;
-}
-form input[type=button]
-{
-   border: none;
-   width: 100%;
-   padding: 10px 20px;
-   margin: 10px;
-   text-decoration: none;
-   color: black;
-
-
-}
-form input[type=button]:hover
-{
-   background-color: gainsboro;
-}
-
-{
-   text-decoration: none;
-   color: black;
-}
-
-
-/* style for tablet screens */
-
 /* style for phone screens */
 @media only screen and (max-width: 600px) {
 
@@ -380,80 +339,6 @@ form input[type=button]:hover
    margin-left: 0%;
    
   }
-  #campus-saftey
-   {
-      width: 100%;
-   }
-   
-   #campus-saftey a
-   {
-      width: 100%;
-   }
-   #campus-security a
-   {
-     padding: 5% 0% 5% 0%;
-   }
-   
-   
-   #fire-ems a
-   {
-     padding: 5% 0% 5% 0%;
-   }
-   
-   #public-saftey a
-   {
-     padding: 5% 0% 5% 0%;
-   }
-   
-   #crime-action a
-   {
-     padding: 5% 0% 5% 0%;
-   }
-   
-   #additional a
-   {
-      padding: 5% 0% 5% 0%;
-     
-   }
-   
-
-   #hotlines
-   {
-      width: 100%;
-   }
-   #hotlines h3
-   {
-      padding: 0px 0% 10px 10%;
-   }
-   
-   #hotline1 a
-   {
-      padding: 5% 0% 5% 0%;
-   }
-   
-   #hotline2
-   {
-      padding: 0% 0% 0% 20%;
-   }
-   #hotline3
-   {
-      padding: 0% 0% 0% 20%;
-   }
-   
-   #hotline4
-   {
-      padding: 0% 0% 0% 20%;
-   }
-   #hotlines a
-   {
-      padding: 5% 5% 5% 5%;
-   }
-   #additional a
-   {
-      display: inline-block;
-   }
-   
-
    header
    {
       width: 100%;
@@ -478,8 +363,6 @@ form input[type=button]:hover
       margin:auto;
       float: left;
    }
-   
-
     #web-nav
     {
         display: none;

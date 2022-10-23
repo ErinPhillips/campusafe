@@ -1,9 +1,4 @@
-<?php
-if($_POST["Message"]) {
-mail("meghangillikin@gmail.com", "Here is the sample subject line",
-$_POST["Insert Your Message"]. "From: gillikinme@g.cofc.edu");
-}
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +10,7 @@ $_POST["Insert Your Message"]. "From: gillikinme@g.cofc.edu");
    
  <!-- Import stylesheet -->
    <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="aboutUs.css">
    
  <!-- Import icons -->
    <!-- Profile icon -->  
@@ -73,7 +69,7 @@ $_POST["Insert Your Message"]. "From: gillikinme@g.cofc.edu");
         <li><img id="nav-logo" src="images/nav-logo.png"><a href = "aboutUs.html">About Us</a></li>
          </ul>
     </nav>
-   
+   </header>
    <div id="aboutUsHeropic">
    <img src="images/college_image.jpeg" width="100%" alt="Image of the College of Charleston">
    
@@ -98,39 +94,33 @@ $_POST["Insert Your Message"]. "From: gillikinme@g.cofc.edu");
     Erin is a Senior, majoring in a B.S. in Computer Science, and is also our project manager!<br>
     Olivia is a Junior, double majoring in Computer Science and Mathematics and is our documentation specialist! This is the first software development project they've made, but they hope to make many more!<br>
     <br>
-    <h2>Contact Us</h2>
+   
    <!-- Sample HTML Form -->
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfplPMa0ynNMlLlKOk6I0RZdVBch4sYdQ_tMSzG273LyUXLsg/viewform?embedded=true" width="640" height="382" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+<div class="container">  
+  <form id="contact" action="" method="post">
+    <h3>Quick Contact</h3>
+    <h4>Contact us with any feedback or questions.</h4>
+    <fieldset>
+      <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Email Address" type="email" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+  </form>
+ 
+  
+</div>
     <footer>
        <small><i>Copyright &copy; 2022 CampuSafe</i><br>
        <a href="mailto:gillikinme@g.cofc.edu?subject = Feedback&body = Message">Contact Us</a>
        </small>
    </footer>
-</div>
-   
-   <script>
-   
-   
-   // toggles nav content when menu button is clicked on mobile browser
-function togglePhoneNav()
-{
-  document.getElementById("dropdown").classList.toggle("show");
-}
-   /*
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-*/
-   </script>
+   </div>  
 </body>
 </html>
