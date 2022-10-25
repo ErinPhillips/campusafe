@@ -107,7 +107,7 @@ header h1 a
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  
   top: 0;
   right: 0;
   background-color: #f1f1f1;
@@ -192,6 +192,7 @@ header h1 a
   transition: opacity 100ms;
   visibility: hidden;
   opacity: 0;
+  
 }
 .overlay:target {
   visibility: visible;
@@ -207,6 +208,7 @@ header h1 a
   height: 80%;
   position: relative;
   transition: all 100ms ease-in-out;
+  
 }
 
 .popup h2 {
@@ -229,6 +231,7 @@ header h1 a
 }
 .popup .content {
   height: 100%;
+  z-index: 1;
 }
 .popup .submit
 {
@@ -272,13 +275,12 @@ footer
 }
 
 /* style for phone screens */
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 600px) {
 
     /* widen wrapper */
     #wrapper { 
        width: 95%;
        height: 100vh;
-       overflow-y: hidden;
    }
    
    /* center and widen content on screen */
@@ -310,24 +312,6 @@ footer
    #right-side
    {
       display:none;
-   }
-   
-   #alerts dl
-  {
-   margin-left: 0%;
-   
-   }
-   
-   #friends
-   {
-      width: 80%;
-      margin:0% 10% 0% 10%;
-   }
-   
-   #friends dl
-   {
-   margin-left: 0%;
-   
    }
    
    header

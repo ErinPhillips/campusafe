@@ -11,11 +11,12 @@
    <link rel="stylesheet" href="styles.css">
    <link rel="stylesheet" href="myFriends.css">
    
+   
    <!-- import JS files -->
    
-    <script type="text/javascript" src="myFriendsMap.js"></script>
+    <script type="text/javascript" src="map.js"></script>
    
-   <script type="text/javascript" src="events.js"></script>
+    <script type="text/javascript" src="events.js"></script>
    
  <!-- Import icons -->
    <!-- Profile icon -->  
@@ -45,7 +46,6 @@
         <div id = "hello-user">Hello User!</div>
         <div id="profile-dropdown-content">
          <a href="#profile-popup" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">person_filled</span>My Profile</a>
-         <a href="settings.html" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">settings</span>Settings</a>
          <a href="login.html" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">logout</span>Logout</a>
         </div>
     
@@ -111,15 +111,135 @@
          <dd id = "time">Last Updated 23 Minutes Ago</dd>
       </div>
    </dl>
-   </div>
+      </div>
+      
+      
 </div>
+      
+      <div id="drag-friends" hidden>
+      <div id="drag-friends-header"><hr size="3" color="#d3d3d3" width="40%" ></div>
+      
+   <!-- Alert Feed, shows all reports and alerts that appear on map -->
+   
+   <div id="friends">
+   <h2>Friends</h2>
+   <dl>
+      <div id = "friend">
+         <dt>Meghan Gillikin</dt>
+         <dd id = "location">Near Harbor Walk East</dd>
+         <dd id = "time">Last Updated Just Now</dd>
+      </div>
+      <div id = "friend">
+         <dt>Erin Phillips</dt>
+         <dd id = "location">Near South Battery St.</dd>
+         <dd id = "time">Last Updated 3 Minutes Ago</dd>
+      </div>
+      <div id = "friend">
+         <dt>Matthew Sparr</dt>
+         <dd id = "location">Near Marion Square</dd>
+         <dd id = "time">Last Updated 11 Minutes Ago</dd>
+      </div>
+      <div id = "friend">
+         <dt>Olivia Schreiner</dt>
+         <dd id = "location">Near Patriots Point</dd>
+         <dd id = "time">Last Updated 20 Minutes Ago</dd>
+      </div>
+      <div id = "friend">
+         <dt>Trent Varnes</dt>
+         <dd id = "location">Near King St.</dd>
+         <dd id = "time">Last Updated 23 Minutes Ago</dd>
+      </div>
+   </dl>
+   </div>
+   </div>
+      
+      <div class = "sidenav" id="mySidenav">
+         <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
+         <a href = "index.html">Alerts</a>
+         <a href = "myFriends.html">My Friends</a>
+         <a href = "resources.html">Resources</a>
+         <a href = "aboutUs.html">About Us</a>
+         <a href="#profile-popup">My Profile</a>
+         <a href="login.html">Logout</a>
+      </div>
+      </div>
+       <!-- Report popup - holds a form where users can fill out information about incident and submit it to alert feed -->
+      
+   <div id = "report-popup" class="overlay">
+      <div class="popup">
+      <a class="close" href="#">&times;</a>
+          <div class="content">
+             <div id="map2" class="map-item"> </div>
+             <form id = "report">
+                <label for="location" >Location  *</label>
+                <br>
+                <textarea type="location" required id="location" style="border:none;" autofocus placeholder="Click on the map to add a location"></textarea>
+                <br>
+                <label for="date">Date  *</label>
+                <br>
+                <input type="date" required id="date" name="date">
+                <br>
+                <br>
+                <label for="time">Time  *</label>
+                <br>
+                <input type="time" required id="time" name="time">
+                <br>
+                <br>
+                <div id="latlng" style="display: none"></div>
+                <label for="incident">Incident  *</label>
+                <br>
+                <select id="incident" required name="incident">
+               
+                <option value="" >Select an Option</option>
+                <option value="theft">Theft</option>
+                <option value="shooting">Shooting</option>
+                <option value="harrassment">Harassment</option>
+                <option value="car-breakin">Car Break In</option>
+                <option value="stalking">Stalking</option>
+                <option value="sexual-assault">Sexual Assault</option>
+                <option value="other">Other</option>
+                </select>
+                <br>
+                <br>
+                <label for="crime">Was this a violent crime?  *</label><br>
+                <select id="crime" required name="crime">
+                <option value="" selected>Select an Option</option>
+                <option value="non-violent">Non-Violent</option>
+                <option value="violent">Violent</option>
+                </select>
+                <br>
+                <br>
+                <label for="additional-info">Additional Information</label><br>
+                <textarea wrap="soft" style="resize:none; height:10%;"></textarea>
+                <br>
+                <input type=submit name="submit" class="submit">
+                <br>
+                <br>
+                <div>* Required</div>
+                
+             
+             </form>
+      </div>
+      </div>
+      </div>
+   
+     <!-- Profile popup box (users can edit profile info and see account info)-->
+   
+   <div id = "profile-popup" class="overlay">
+      <div class="popup">
+      <a class="close" href="#">&times;</a>
+          <div class="content">
+             Profile
+         </div>
+      </div>
+   </div>
+   
     <footer>
        <small><i>Copyright &copy; 2022 CampuSafe</i><br>
        <a href="mailto:gillikinme@g.cofc.edu?subject = Feedback&body = Message">Contact Us</a>
        </small>
    </footer>
-</div>
-   
+
  
    <script async defer
      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQy4vKcZsMzbEjzqRb44n0AsvnmgMFC30&callback=drawMap">

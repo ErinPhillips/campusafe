@@ -2,7 +2,7 @@
 [] connect with firebase
 [] 
 */
-var map1, map2;
+var map1, map2, map3;
    let markersArray1 = []; 
    let markersArray2 = []; 
    let polyline = null; 
@@ -32,12 +32,19 @@ var map1, map2;
       
        mapOptions.center = new google.maps.LatLng(32.78357208741187, -79.93661390988309);
       
-       map1 = new google.maps.Map(document.getElementById("map1"), mapOptions);
+       if(window.location.pathname.endsWith('index.html'))
+       {
+            map1 = new google.maps.Map(document.getElementById("map1"), mapOptions);
+       }
 
        mapOptions.center = new google.maps.LatLng(32.78357208741187, -79.93661390988309); 
       
        map2 = new google.maps.Map(document.getElementById("map2"), mapOptions);
       
+       if(window.location.pathname.endsWith('myFriends.html'))
+       {
+            map3 = new google.maps.Map(document.getElementById("map3"), mapOptions);
+       }
       
        
        map2.addListener('click', function(e) {
@@ -58,20 +65,54 @@ var map1, map2;
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-          map1.setCenter(pos);
-          var marker = new google.maps.Marker({
-          position: pos,
-          map: map1,
-          icon: {
-          path: google.maps.SymbolPath.CIRCLE,
-          scale: 10,
-          fillOpacity: 1,
-          strokeWeight: 5,
-          fillColor: '#5384ED',
-          strokeColor: '#ffffff',
+          if(window.location.pathname.endsWith('index.html'))
+          {
+             map1.setCenter(pos);
+             var marker1 = new google.maps.Marker({
+             position: pos,
+             map: map1,
+             icon: {
+             path: google.maps.SymbolPath.CIRCLE,
+             scale: 10,
+             fillOpacity: 1,
+             strokeWeight: 5,
+             fillColor: '#5384ED',
+             strokeColor: '#ffffff',
+             },
+             });
+          }
+          if(window.location.pathname.endsWith('myFriends.html'))
+          {
+             map3.setCenter(pos);
+             var marker3 = new google.maps.Marker({
+             position: pos,
+             map: map3,
+             icon: {
+             path: google.maps.SymbolPath.CIRCLE,
+             scale: 10,
+             fillOpacity: 1,
+             strokeWeight: 5,
+             fillColor: '#5384ED',
+             strokeColor: '#ffffff',
+             },
+             });
+          }
+           
+          map2.setCenter(pos); 
+          
+          var marker2 = new google.maps.Marker({
+             position: pos,
+             map: map2,
+             icon: {
+             path: google.maps.SymbolPath.CIRCLE,
+             scale: 10,
+             fillOpacity: 1,
+             strokeWeight: 5,
+             fillColor: '#5384ED',
+             strokeColor: '#ffffff',
           },
-        }
-      );
+        });
+           
     } )}
       
    })
