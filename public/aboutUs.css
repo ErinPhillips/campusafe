@@ -4,6 +4,7 @@
 	width:100%;
 	margin:0 auto;
 	position:relative;
+    
 }
 
 #contact input[type="text"], #contact input[type="email"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
@@ -12,6 +13,7 @@
 	background:#F9F9F9;
 	padding:25px;
 	margin:50px;
+    box-shadow: 3px 3px 5px 5px gainsboro;
 }
 
 #contact h3 {
@@ -36,7 +38,7 @@ fieldset {
 }
 
 #contact input[type="text"], #contact input[type="email"], #contact textarea {
-	width:100%;
+	width:90%;
 	border:1px solid #CCC;
 	background:#FFF;
 	margin:0 0 5px;
