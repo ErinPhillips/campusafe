@@ -272,7 +272,7 @@ footer
 }
 
 /* style for phone screens */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
 
     /* widen wrapper */
     #wrapper { 
@@ -325,16 +325,17 @@ footer
    }
    
    #friends dl
-  {
+   {
    margin-left: 0%;
    
-  }
+   }
+   
    header
    {
       width: 100%;
       height:100px;
-   
    }
+   
    .menuButton
    {
       display:block;
@@ -342,7 +343,6 @@ footer
       right: 0;
       padding: 20px;
       height: 50px;
-      
    }
    
    header h1 a
