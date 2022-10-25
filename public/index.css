@@ -93,7 +93,7 @@ textarea::-webkit-scrollbar {
        height: 400px;
    }
    
-    #drag-alert 
+    #drag-element 
    {
       display:block;
       position: absolute;
