@@ -93,71 +93,45 @@
 
 /* style for phone screens */
 @media only screen and (max-width: 600px) {
-
+   
+   #resource-container
+{
+   height: 1000px;
+   width: 100%;
+}
   #campus-saftey
    {
-      width: 100%;
+      justify-content: center;
+      width: 80%;
    }
    
    #campus-saftey a
    {
       width: 100%;
+      margin: 10px 30px;
+      padding: 5% 5% 5% 5%;
    }
-   #campus-security a
+   #campus-saftey h3
    {
-     padding: 5% 0% 5% 0%;
+     text-align: center;
+      margin: 0;
    }
-   
-   
-   #fire-ems a
-   {
-     padding: 5% 0% 5% 0%;
-   }
-   
-   #public-saftey a
-   {
-     padding: 5% 0% 5% 0%;
-   }
-   
-   #crime-action a
-   {
-     padding: 5% 0% 5% 0%;
-   }
-   
-   #additional a
-   {
-      padding: 5% 0% 5% 0%;
-     
-   }
-   
 
    #hotlines
    {
+      justify-content: center;
+      width: 80%;
+   }
+   #hotlines a
+   {
       width: 100%;
+      margin: 10px 30px;
    }
    #hotlines h3
    {
-      padding: 0px 0% 10px 10%;
+      text-align: center;
    }
    
-   #hotline1 a
-   {
-      padding: 5% 0% 5% 0%;
-   }
-   
-   #hotline1 a, #hotline2 a, #hotline3 a, #hotline4 a
-   {
-      padding: 0% 0% 0% 20%;
-   }
-   #hotline3
-   {
-      padding: 0% 0% 0% 20%;
-   }
-   
-   #hotline4
-   {
-      padding: 0% 0% 0% 20%;
-   }
    #hotlines a
    {
       padding: 5% 5% 5% 5%;
