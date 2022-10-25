@@ -65,7 +65,7 @@ var map1, map2, map3;
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-          if(window.location.pathname.endsWith('index.html'))
+          if(window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('herokuapp.com'))
           {
              map1.setCenter(pos);
              var marker1 = new google.maps.Marker({
