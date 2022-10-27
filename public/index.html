@@ -47,12 +47,16 @@
 </head>
 <body>
    
+   
+<div id="wrapper">
+   
    <div id = "topHead">
     <div id = "profile-dropdown">
         <a id= "profile-icon" href="#profile-popup" style="color: dimgray"><span class="material-symbols-outlined" >person_filled</span></a>
         <div id = "hello-user">Hello User!</div>
         <div id="profile-dropdown-content">
          <a href="#profile-popup" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">person_filled</span>My Profile</a>
+         <a href="settings.html" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">settings</span>Settings</a>
          <a href="login.html" style="color: dimgray"><span class="material-symbols-outlined" style="margin: 0px 10px">logout</span>Logout</a>
         </div>
     
@@ -67,7 +71,6 @@
       <!-- Menu Nav for mobile browser (slides from right side of screen) -->
       
       <span class="menuButton" onclick="openNav()">&#9776;</span>
-     
       
       <!-- Menu Nav for web browser (appears across top of screen) -->
      
@@ -81,19 +84,31 @@
     </nav>
    </header>
    
-    <div id="wrapper">
+   
    <!-- Main Map UI, holds all of the current markers (users cannot add markers directly by clicking on this map)-->
    
    <div id="left-side">
        <div id="map1" class="map-item"> </div>
    </div>
    
+   <!-- Profile popup box (users can edit profile info and see account info)-->
+   
+   <div id = "profile-popup" class="overlay">
+      <div class="popup">
+      <a class="close" href="#">&times;</a>
+          <div class="content">
+             Profile
+         </div>
+      </div>
+   </div>
+   
    <div id="right-side">
    
       
    <!-- Alert Feed, shows all reports and alerts that appear on map -->
-   <h2 id = "alertsHeader">Alerts</h2>
+      
    <div id="alerts">
+   <h2>Alerts</h2>
    
    <dl>
       <div id = "nonviolent">
@@ -148,6 +163,7 @@
          <a href = "resources.html">Resources</a>
          <a href = "aboutUs.html">About Us</a>
          <a href="#profile-popup">My Profile</a>
+         <a href="settings.html">Settings</a>
          <a href="login.html">Logout</a>
       </div>
    </div>
@@ -212,17 +228,6 @@
       </div>
       </div>
       </div>
-   
-     <!-- Profile popup box (users can edit profile info and see account info)-->
-   
-   <div id = "profile-popup" class="overlay">
-      <div class="popup">
-      <a class="close" href="#">&times;</a>
-          <div class="content">
-             Profile
-         </div>
-      </div>
-   </div>
    
    <!-- footer - appears at bottom of page -->
    <footer>
